@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Our Company | Falcon Plant Resources</title>
+    <meta name="description" content="Learn about Falcon Plant Resources' commitment to safety, quality, and excellence in industrial maintenance services with 25+ years of experience.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="icon" href="./image001.png" type="image/png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-87ZVJN8SYC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-87ZVJN8SYC');
+    </script>
+    <style>
+        /* CSS Reset and Base Styles */
+        :root {
+            --primary-red: #BD1F28;
+            --primary-black: #000000;
+            --primary-gray: #A2A9AD;
+            --white: #FFFFFF;
+            --dark-gray: #333333;
+            --light-gray: #F5F5F5;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+        
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 2rem; }
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary-red);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-black);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .btn-red {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: 2px solid var(--primary-red);
+        }
+        
+        .btn-red:hover {
+            background-color: transparent;
+            color: var(--primary-red);
+        }
+        
+        .btn-outline-white {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline-white:hover {
+            background-color: var(--white);
+            color: var(--primary-black);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: var(--white);
+        }
+        
+        .bg-red {
+            background-color: var(--primary-red);
+        }
+        
+        .bg-black {
+            background-color: var(--primary-black);
+        }
+        
+        .bg-gray {
+            background-color: var(--primary-gray);
+        }
+        
+        .bg-light-gray {
+            background-color: var(--light-gray);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 20px auto 0;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            transition: var(--transition);
+        }
+        
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-left: 10px;
+            color: var(--primary-black);
+        }
+        
+        .logo-text span {
+            color: var(--primary-red);
+        }
+        
+        /* Navigation */
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin-left: 30px;
+        }
+        
+        .nav-menu li a {
+            font-weight: 600;
+            color: var(--primary-black);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: var(--transition);
+        }
+        
+        .nav-menu li a:hover:after,
+        .nav-menu li.active a:after {
+            width: 100%;
+        }
+        
+        .nav-menu li.active a {
+            color: var(--primary-red);
+        }
+        
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+        }
+        
+        .nav-menu li:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .submenu li {
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .submenu li a {
+            display: block;
+            padding: 10px 15px;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-black);
+            cursor: pointer;
+        }
+        
+        /* Hero Section - Company Page Version */
+        .hero-company {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-company h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero-company p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        /* About Company Section */
+        .about-company {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+        
+        .about-company-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-company-text {
+            margin-bottom: 50px;
+        }
+        
+        .about-company-text h2 {
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+        
+        .about-company-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .about-company-text strong {
+            color: var(--primary-black);
+            font-weight: 700;
+        }
+        
+        .commitment-section {
+            background-color: var(--light-gray);
+            padding: 60px;
+            border-radius: 8px;
+            margin-top: 50px;
+        }
+        
+        .commitment-section h2 {
+            color: var(--primary-red);
+            margin-bottom: 20px;
+        }
+        
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1544&q=80') no-repeat center center/cover;
+            padding: 80px 0;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .stat-item {
+            padding: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            margin-bottom: 10px;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-black);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+        
+        .footer-logo img {
+            height: 50px;
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-red);
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--primary-gray);
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--primary-red);
+            padding-left: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--primary-gray);
+            font-size: 0.9rem;
+        }
+        
+        .footer-bottom a {
+            color: var(--primary-gray);
+        }
+        
+        .footer-bottom a:hover {
+            color: var(--primary-red);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-company h1 {
+                font-size: 2.5rem;
+            }
+            
+            .commitment-section {
+                padding: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                background: none;
+                box-shadow: none;
+                width: 100%;
+                padding-left: 20px;
+            }
+            
+            .nav-menu li:hover .submenu {
+                display: none;
+            }
+            
+            .nav-menu li.active .submenu {
+                display: block;
+            }
+            
+            .hero-company {
+                height: auto;
+                padding: 120px 0 80px;
+            }
+            
+            .hero-company h1 {
+                font-size: 2rem;
+            }
+            
+            .commitment-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="./image001.png" alt="Falcon Plant Resources Logo" class="logo-img">
+                <span class="logo-text">FALCON <span>PLANT RESOURCES</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active"><a href="our_company.html">Our Company</a></li>
+                    <li>
+                        <a href="#services-id">Services</a>
+                        <ul class="submenu">
+                            <li><a href="./services/mechanical.html">Mechanical Services</a></li>
+                            <li><a href="./services/welding.html">Specialty Welding</a></li>
+                            <li><a href="./services/torque.html">Torque Services</a></li>
+                            <li><a href="./services/bolt_tensioning.html">Bolt Tensioning</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#contacto-formulario">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-company">
+        <div class="hero-content">
+            <h1>Our Company</h1>
+            <p>25+ years of excellence in industrial maintenance services</p>
+        </div>
+    </section>
+
+    <!-- About Company Section -->
+    <section class="about-company section">
+        <div class="container">
+            <div class="about-company-content">
+                <div class="about-company-text">
+                    <h2 class="section-title">About Falcon Plant Resources</h2>
+                    <p><strong>At Falcon Plant Resources (FPR), we are dedicated to providing mechanical, specialty welding, torque, and tensioning services using specialized tools and equipment in a variety of industries.</strong></p>
+                    <p>With over 25 years of experience in the United States market, our objective is to offer quality solutions and service as safely as possible.</p>
+                    <p>Our field personnel are well-trained to avoid accidents and optimize project timelines. Our extensive portfolio of equipment includes hydraulic, electric, cordless, and manual torque tools, hydraulic tensioners, and torque & tensioning pumps, among others.</p>
+                    <p>Contact Falcon Plant Resources today to learn how we can assist with your project needs.</p>
+                </div>
+                
+                <div class="commitment-section">
+                    <h2>Our Commitment to Safety & Quality</h2>
+                    <p>Our core focus is ensuring the highest standards of safety and quality throughout the industry. Our commitment begins with training our employees to complete projects safely and efficiently, resulting in a proven track record of on-time and incident-free project completions. While we prioritize professionalism, our main goal is to achieve accident-free projects that exceed quality benchmarks.</p>
+                    <p>We adhere to safety procedures and policies in line with modern standards, striving to go above and beyond to prevent unforeseen incidents. Internally, our technicians undergo ongoing safety training, emphasizing the importance of safe practices.</p>
+                    <p>Regardless of project size, safety and quality are our top priorities. Choosing Falcon Plant Resources means you are choosing to work with some of the most highly trained and safety-conscious specialists in the industry.</p>
+                    <p>Unlock precision and reliability with Falcon Plant Resources, your trusted partner for superior mechanical, specialty welding, torque and bolt tensioning needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats section">
+        <div class="container">
+            <h2 class="section-title text-white">Why Choose Falcon</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <h3>Years Experience</h3>
+                    <p>Trusted industry expertise</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <h3>Projects Completed</h3>
+                    <p>Successful implementations</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <h3>Safety Record</h3>
+                    <p>Zero lost-time incidents</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <h3>Emergency Service</h3>
+                    <p>Always available when you need us</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section">
+        <div class="container">
+            <h2>Ready to experience the Falcon difference?</h2>
+            <a href="#contacto-formulario" class="btn btn-outline-white">Contact Us Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="./images/black_img_footer.png" alt="Falcon Plant Resources Logo" class="logo-img">
+                    </div>
+                    <p>Providing exceptional industrial maintenance services with a commitment to safety, quality, and customer satisfaction since 1998.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="our_company.html">Our Company</a></li>
+                        <li><a href="#services-id">Services</a></li>
+                        <li><a href="#contacto-formulario">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="mechanical-services/">Mechanical Services</a></li>
+                        <li><a href="specialty-welding-services/">Specialty Welding</a></li>
+                        <li><a href="torque-services/">Torque Services</a></li>
+                        <li><a href="bolt-tensioning-services/">Bolt Tensioning</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Here will be the full location on Houston, TX</li>
+                        <li><i class="fas fa-phone"></i> Here we will put the phone number</li>
+                        <li><i class="fas fa-envelope"></i> info@falconplantresources.com</li>
+                        <li><i class="fas fa-clock"></i> Here we're gonna put an attention hour</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Falcon Plant Resources. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Animation on Scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.about-company-text, .commitment-section, .stat-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.about-company-text, .commitment-section, .stat-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>

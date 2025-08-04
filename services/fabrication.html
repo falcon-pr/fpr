@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Certified Fabrication Services | Falcon Plant Resources</title>
+    <meta name="description" content="ASME U & NBIC R Stamp certified fabrication and repair services for pressure vessels, piping systems, and structural components. Code-compliant solutions for industrial facilities.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="icon" href="./image001.png" type="image/png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-87ZVJN8SYC"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-87ZVJN8SYC');
+    </script>
+    <style>
+        /* MAIN SITE STYLES (Consistent with index.html) */
+        :root {
+            --primary-red: #BD1F28;
+            --primary-black: #000000;
+            --primary-gray: #A2A9AD;
+            --white: #FFFFFF;
+            --dark-gray: #333333;
+            --light-gray: #F5F5F5;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.75rem; }
+        h4 { font-size: 1.5rem; }
+        
+        @media (min-width: 768px) {
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.5rem; }
+            h3 { font-size: 2rem; }
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            color: var(--primary-red);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--primary-black);
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: var(--transition);
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .btn-red {
+            background-color: var(--primary-red);
+            color: var(--white);
+            border: 2px solid var(--primary-red);
+        }
+        
+        .btn-red:hover {
+            background-color: transparent;
+            color: var(--primary-red);
+        }
+        
+        .btn-outline-white {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline-white:hover {
+            background-color: var(--white);
+            color: var(--primary-black);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .text-white {
+            color: var(--white);
+        }
+        
+        .bg-red {
+            background-color: var(--primary-red);
+        }
+        
+        .bg-black {
+            background-color: var(--primary-black);
+        }
+        
+        .bg-gray {
+            background-color: var(--primary-gray);
+        }
+        
+        .bg-light-gray {
+            background-color: var(--light-gray);
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            margin: 20px auto 0;
+        }
+        
+        /* Header Styles (Same as main site) */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            transition: var(--transition);
+        }
+        
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.5rem;
+            margin-left: 10px;
+            color: var(--primary-black);
+        }
+        
+        .logo-text span {
+            color: var(--primary-red);
+        }
+        
+        /* Navigation (Same as main site) */
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin-left: 30px;
+        }
+        
+        .nav-menu li a {
+            font-weight: 600;
+            color: var(--primary-black);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        .nav-menu li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-red);
+            transition: var(--transition);
+        }
+        
+        .nav-menu li a:hover:after,
+        .nav-menu li.active a:after {
+            width: 100%;
+        }
+        
+        .nav-menu li.active a {
+            color: var(--primary-red);
+        }
+        
+        .submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 200px;
+            background-color: var(--white);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+        }
+        
+        .nav-menu li:hover .submenu {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .submenu li {
+            margin: 0;
+            padding: 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .submenu li a {
+            display: block;
+            padding: 10px 15px;
+        }
+        
+        /* Mobile Menu (Same as main site) */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary-black);
+            cursor: pointer;
+        }
+        
+        /* FABRICATION-SPECIFIC STYLES */
+        .service-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/fabrication-hero.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .service-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .service-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-weight: 800;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .service-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+        
+        /* Service Detail Section */
+        .service-detail {
+            position: relative;
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .service-detail-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .service-detail-text {
+            flex: 1;
+        }
+        
+        .service-detail-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .service-detail-image img {
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Materials & Equipment Lists - Enhanced Design */
+        .materials-section {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+        }
+        
+        .materials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .material-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            position: relative;
+            border-top: 4px solid var(--primary-red);
+        }
+        
+        .material-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .material-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-red);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .material-content {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .material-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-black);
+        }
+        
+        /* Equipment Section */
+        .equipment-section {
+            background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('../images/fabrication-bg.jpg') center/cover;
+            padding: 80px 0;
+            color: var(--white);
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .equipment-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(5px);
+            border-radius: 8px;
+            padding: 30px;
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-red);
+        }
+        
+        .equipment-card:hover {
+            background: rgba(189, 31, 40, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .equipment-card h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .equipment-card h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-red);
+        }
+        
+        /* CTA Section */
+        .service-cta {
+            background-color: var(--primary-red);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .service-detail-content {
+                flex-direction: column;
+            }
+            
+            .service-detail-image {
+                order: -1;
+            }
+            
+            .service-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+                background: none;
+                box-shadow: none;
+                width: 100%;
+                padding-left: 20px;
+            }
+            
+            .nav-menu li:hover .submenu {
+                display: none;
+            }
+            
+            .nav-menu li.active .submenu {
+                display: block;
+            }
+            
+            .service-hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+            
+            .service-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .materials-grid,
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+       <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../image001.png" alt="Falcon Plant Resources Logo" class="logo-img">
+                <span class="logo-text">FALCON <span>PLANT RESOURCES</span></span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#about-us">Our Company</a></li>
+                    <li class="active">
+                        <a href="../index.html#services-id">Services</a>
+                        <ul class="submenu">
+                            <li><a href="../services/mechanical.html">Mechanical Services</a></li>
+                            <li><a href="../services/welding.html">Specialty Welding</a></li>
+                            <li><a href="../services/fabrication.html">Fabrication Services</a></li>
+                            <li><a href="../services/torque.html">Torque Services</a></li>
+                            <li><a href="../services/bolt_tensioning.html">Bolt Tensioning</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../index.html#contacto-formulario">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="service-hero">
+        <div class="service-hero-content">
+            <h1>Certified Fabrication Services</h1>
+            <p>ASME U & NBIC R Stamp certified fabrication and repair solutions for pressure vessels, piping systems, and structural components</p>
+            <a href="#contact" class="btn btn-red">Request Fabrication Quote</a>
+        </div>
+    </section>
+
+    <!-- Service Detail Section -->
+    <section class="service-detail section">
+        <div class="container">
+            <h2 class="section-title">Certified Fabrication & Repair Services</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">At Falcon Plant Resources, we deliver fully certified fabrication and repair services for pressure vessels, process piping, and structural components — ensuring strict compliance with ASME and NBIC codes.</p>
+            
+            <div class="service-detail-content">
+                <div class="service-detail-text">
+                    <p><strong>As an ASME U Stamp and NBIC R Stamp certified facility, we are authorized to fabricate new pressure-retaining equipment and perform code-compliant repairs and alterations, both in-shop and in the field.</strong></p>
+                    <p>With experienced fabricators, certified welders, advanced QA/QC systems, and full traceability, we deliver turnkey fabrication and repair solutions trusted by refineries, petrochemical plants, terminals, and industrial facilities across the nation.</p>
+                    <p>Whether building new systems or restoring existing ones, we ensure safety, code compliance, and operational reliability — every time.</p>
+                </div>
+                
+                <div class="service-detail-image">
+                    <img src="../images/mechanical.png" alt="Fabrication Work at Falcon Plant Resources">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="materials-section section">
+        <div class="container">
+            <h2 class="section-title">Our Fabrication Services Include:</h2>
+            
+            <div class="materials-grid">
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="material-content">
+                        <h3>Pressure Vessel Fabrication</h3>
+                        <p>ASME Section VIII compliant fabrication of new pressure vessels with full U Stamp certification</p>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                    <div class="material-content">
+                        <h3>Modular Skids & Packages</h3>
+                        <p>Custom fabrication of modular process skids, equipment frames, and integrated packages</p>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-pipe"></i>
+                    </div>
+                    <div class="material-content">
+                        <h3>Pipe Fabrication</h3>
+                        <p>Precision pipe spool fabrication for carbon steel, stainless, and high-alloy materials</p>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="material-content">
+                        <h3>Custom Tanks & Drums</h3>
+                        <p>Fabrication of storage tanks, air receivers, knock-out drums, and specialty vessels</p>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="material-content">
+                        <h3>Weld Repairs & Modifications</h3>
+                        <p>Component replacement, nozzle modifications, and structural alterations</p>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="material-content">
+                        <h3>Heat Exchanger Services</h3>
+                        <p>Re-tubing, channel/shell repairs, and component replacement for heat exchangers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipment Section -->
+    <section class="equipment-section section">
+        <div class="container">
+            <h2 class="section-title text-white">Field & Shop Fabrication Capabilities</h2>
+            
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <h3>ASME U Stamp Certification</h3>
+                    <ul>
+                        <li>Authorized pressure vessel fabrication</li>
+                        <li>Full documentation and traceability</li>
+                        <li>Third-party inspection coordination</li>
+                        <li>Hydrotest and NDT services</li>
+                    </ul>
+                </div>
+                
+                <div class="equipment-card">
+                    <h3>NBIC R Stamp Repairs</h3>
+                    <ul>
+                        <li>Code-compliant repairs and alterations</li>
+                        <li>Field and shop-based services</li>
+                        <li>Pressure boundary restoration</li>
+                        <li>Post-repair testing and certification</li>
+                    </ul>
+                </div>
+                
+                <div class="equipment-card">
+                    <h3>Materials Expertise</h3>
+                    <ul>
+                        <li>Carbon and low alloy steels</li>
+                        <li>Stainless steels (300/400 series)</li>
+                        <li>Duplex and super duplex</li>
+                        <li>Nickel alloys and clad materials</li>
+                    </ul>
+                </div>
+                
+                <div class="equipment-card">
+                    <h3>Quality Assurance</h3>
+                    <ul>
+                        <li>WPS/PQR development</li>
+                        <li>NDT services (RT, UT, MT, PT)</li>
+                        <li>Dimensional verification</li>
+                        <li>Material traceability</li>
+                    </ul>
+                </div>
+                
+                <div class="equipment-card">
+                    <h3>Field Fabrication</h3>
+                    <ul>
+                        <li>Turnaround support</li>
+                        <li>Emergency repairs</li>
+                        <li>Hot work capabilities</li>
+                        <li>Mobile welding units</li>
+                    </ul>
+                </div>
+                
+                <div class="equipment-card">
+                    <h3>Shop Fabrication</h3>
+                    <ul>
+                        <li>10,000 sq ft fabrication facility</li>
+                        <li>Overhead crane capacity</li>
+                        <li>CNC cutting and forming</li>
+                        <li>Controlled environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats section">
+        <div class="container">
+    <h2 class="text-center" style="
+    position: relative;
+    margin-bottom: 50px;
+    color: #000000;
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-bottom: 15px;
+    font-family: 'Montserrat', sans-serif;
+">
+    Why Choose Our Fabrication Services
+    <span style="
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: #BD1F28;
+        margin: 20px auto 0;
+        transition: all 0.3s ease;
+    "></span>
+</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">ASME</div>
+                    <h3>U Stamp Certified</h3>
+                    <p>Authorized pressure vessel fabrication</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">NBIC</div>
+                    <h3>R Stamp Certified</h3>
+                    <p>Code-compliant repairs and alterations</p>
+                </div>
+                
+                <div class="stat-number">100%</div>
+                    <h3>Quality Assurance</h3>
+                    <p>Rigorous inspection and testing protocols</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <h3>Emergency Response</h3>
+                    <p>Critical repair and fabrication services</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="service-cta">
+        <div class="container">
+            <h2>Need Certified Fabrication Services?</h2>
+            <p class="text-white" style="max-width: 700px; margin: 0 auto 30px;">Our ASME U Stamp and NBIC R Stamp certified team is ready to handle your most critical fabrication and repair projects with precision and compliance.</p>
+            <a href="../index.html#contacto-formulario" class="btn btn-outline-white">Contact Our Fabrication Team</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <style>
+                /* Footer Styles */
+footer {
+    background-color: var(--primary-black);
+    color: var(--white);
+    padding: 60px 0 20px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-about {
+    padding-right: 20px;
+}
+
+
+
+.footer-about img:hover {
+    opacity: 0.8;
+}
+
+.footer-about p {
+    margin-bottom: 20px;
+    color: var(--primary-gray);
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background-color: var(--primary-red);
+    transform: translateY(-3px);
+}
+
+.footer-links h3 {
+    color: var(--white);
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.footer-links h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-red);
+}
+
+.footer-links ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-links ul li {
+    margin-bottom: 12px;
+    position: relative;
+}
+
+.footer-links ul li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-links ul li a,
+.footer-links ul li {
+    color: var(--primary-gray);
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-red);
+    padding-left: 5px;
+}
+
+.footer-links ul li i {
+    margin-right: 12px;
+    color: var(--primary-red);
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--primary-gray);
+    font-size: 0.9rem;
+}
+
+.footer-bottom a {
+    color: var(--primary-gray);
+    transition: var(--transition);
+}
+
+.footer-bottom a:hover {
+    color: var(--primary-red);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-about {
+        text-align: center;
+        padding-right: 0;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-links {
+        text-align: center;
+    }
+    
+    .footer-links h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-links ul li {
+        justify-content: center;
+    }
+    
+    .footer-links ul li a:hover {
+        padding-left: 0;
+    }
+}
+            </style>
+            <div class="footer-container">
+                <div class="footer-about">
+                  <img src="../images/black_img_footer.png" alt="Falcon Plant Resources Logo" class="logo-img">
+                    <p>Providing exceptional industrial maintenance services with a commitment to safety, quality, and customer satisfaction since 1998.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#about-us">Our Company</a></li>
+                        <li><a href="../index.html#services-id">Services</a></li>
+                        <li><a href="../index.html#contacto-formulario">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="../services/mechanical.html">Mechanical Services</a></li>
+                        <li><a href="../services/welding.html">Specialty Welding</a></li>
+                        <li><a href="../services/fabrication.html">Fabrication Services</a></li>
+                        <li><a href="../services/torque.html">Torque Services</a></li>
+                        <li><a href="../services/bolt_tensioning.html">Bolt Tensioning</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 1021 E El Rancho Rd
+McAllen TX 78503</li>
+                        <li><i class="fas fa-phone"></i> 281-703-7893
+</li>
+                        <li><i class="fas fa-envelope"></i> info@falconplantresources.com</li>
+                        <li><i class="fas fa-clock"></i> Here we're gonna put an attention hour</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Falcon Plant Resources. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+        
+        // Animation on Scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.material-card, .equipment-card, .stat-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.material-card, .equipment-card, .stat-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
