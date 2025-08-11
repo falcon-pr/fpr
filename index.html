@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -752,8 +753,9 @@
                         <ul class="submenu">
                             <li><a href="./services/mechanical.html">Mechanical Services</a></li>
                             <li><a href="./services/welding.html">Specialty Welding</a></li>
-                            <li><a href="./services/torque.html">Torque Services</a></li>
-                            <li><a href="./services/bolt_tensioning.html">Bolt Tensioning</a></li>
+                            <li><a href="./services/fabrication.html">Fabrication</a></li>
+                            <li><a href="index.html#services-id">Controlled Services</a></li>
+                            <li><a href="index.html#service-content-enhanced">Precision Solutions</a></li>
                         </ul>
                     </li>
                     <li><a href="#contacto-formulario">Contact us</a></li>
@@ -764,13 +766,37 @@
     </header>
 <!-- Hero Section COMPLETA con video de fondo -->
 <section class="hero">
-    <!-- Video de fondo -->
-    <div class="hero-video-bg">
-        <video autoplay muted loop playsinline>
-            <source src="./images/herovid.mp4" type="video/mp4">
-        </video>
-        <div class="hero-video-overlay"></div>
+    <style>
+        .hero-image-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/hero-banner-2.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.hero-image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Opacidad del 40% */
+    mix-blend-mode: multiply;
+}
+    </style>
+    <!-- Fondo de imagen en lugar de video -->
+    <div class="hero-image-bg">
+        <div class="hero-image-overlay"></div>
     </div>
+
+
+
+
 
     <!-- Contenido principal -->
     <div class="hero-content">
@@ -1182,7 +1208,7 @@
 
                   <div class="service-card">
                     <div class="service-image">
-                        <img src="./images/imgcard.png" alt="Fabrication Services">
+                        <img src="./images/black_img_footer.png" alt="Fabrication Services">
                     </div>
                     <div class="service-content">
                         <h3>Fabrication Services</h3> 
