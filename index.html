@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -766,37 +765,13 @@
     </header>
 <!-- Hero Section COMPLETA con video de fondo -->
 <section class="hero">
-    <style>
-        .hero-image-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./images/hero-banner-2.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
-
-.hero-image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Opacidad del 40% */
-    mix-blend-mode: multiply;
-}
-    </style>
-    <!-- Fondo de imagen en lugar de video -->
-    <div class="hero-image-bg">
-        <div class="hero-image-overlay"></div>
+    <!-- Video de fondo -->
+    <div class="hero-video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="./images/herovid.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
     </div>
-
-
-
-
 
     <!-- Contenido principal -->
     <div class="hero-content">
@@ -1084,15 +1059,9 @@
     }
     
     /* Overlay oscuro */
-    .hero-video-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 1;
-    }
+.hero-video-overlay {
+    background: rgba(0, 0, 0, 0); /* Sin overlay */
+}
     
     /* Contenido principal */
     .hero-content {
@@ -1208,7 +1177,7 @@
 
                   <div class="service-card">
                     <div class="service-image">
-                        <img src="./images/black_img_footer.png" alt="Fabrication Services">
+                        <img src="./images/fabricationimg.png" alt="Fabrication Services">
                     </div>
                     <div class="service-content">
                         <h3>Fabrication Services</h3> 
@@ -1713,14 +1682,12 @@ McAllen TX 78503</span>
                 <div class="footer-about">
                   <img src="./images/black_img_footer.png" alt="Falcon Plant Resources Logo" class="logo-img">
                     <p>Providing exceptional industrial maintenance services with a commitment to safety, quality, and customer satisfaction since 1998.</p>
-                     <!-- Social media links 
+                    
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/share/1DXyHPzE9C/"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.linkedin.com/in/falcon-plant-resources-89619937a"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/invites/contact/?igsh=14hdr5x0bqglg&utm_content=z6dtil0"><i class="fab fa-instagram"></i></a>
                     </div>
-                    -->
                 </div>
                 
                 <div class="footer-links">
