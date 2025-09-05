@@ -1109,27 +1109,159 @@
     }
 </style>
 
-    <!-- About Section -->
-     <section id="about-us"></section>
-    <section class="about section">
-        <div class="container">
-            <h2 class="section-title text-center">About Us</h2>
-            
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>Industrial Maintenance Experts</h3>
-                    <p><strong>Falcon Plant Resources is a multiservice company that provides a variety of mechanical, specialty welding, torque, and bolt tensioning services.</strong></p>
-                    <p>Our technicians are trained to handle projects for areas and industries such as: wind energy, oil refineries, heavy machinery, pulp, maritime ports, and engineering & construction.</p>
-                    <p>With our headquarters strategically located, we're able to serve clients across the region with rapid response times and exceptional service quality.</p>
-                    <a href="our_company.html" class="btn btn-red">Learn More</a>
-                </div>
+<!-- About Section -->
+<section id="about-us"></section>
+<section class="about section">
+    <div class="container">
+        <h2 class="section-title text-center">About Us</h2>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Industrial Maintenance Experts</h3>
+                <p><strong>Falcon Plant Resources is a multiservice company that provides a variety of mechanical, specialty welding, torque, and bolt tensioning services.</strong></p>
+                <p>Our technicians are trained to handle projects for areas and industries such as: wind energy, oil refineries, heavy machinery, pulp, maritime ports, and engineering & construction.</p>
                 
-                <div class="about-image">
-                    <img src="./images/hero-banner-2.jpg" alt="Industrial Maintenance">
+                <!-- Tabs for additional information -->
+                <div class="about-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-link active" data-tab="history">Our History</button>
+                        <button class="tab-link" data-tab="values">Core Values</button>
+                        <button class="tab-link" data-tab="services">Our Services</button>
+                    </div>
+                    
+                    <div class="tab-content active" id="history">
+                        <p>Falcon Plant Resources brings over 25 years of proven expertise to the oil & gas, petrochemical, and refinery industries. Falcon Plant Resources was founded with a clear vision: to provide industrial services that fully align with client goals, safety standards, and operational criteria.</p>
+                        <p>From the beginning, we understood that true success in the oil & gas, petrochemical, and refinery sectors requires more than technical skill—it requires commitment, precision, and trust.</p>
+                    </div>
+                    
+                    <div class="tab-content" id="values">
+                        <h4>What We Stand For</h4>
+                        <p>Every project is driven by safety, quality, and precision, ensuring compliance and client confidence.</p>
+                        
+                        <h4>How We Deliver</h4>
+                        <p>With over 25 years of expertise, we provide turnkey solutions in mechanical, specialty welding, fabrication, and controlled services.</p>
+                        
+                        <h4>Our Promise</h4>
+                        <p>We go beyond being a contractor—acting as a trusted partner in achieving your operational goals.</p>
+                    </div>
+                    
+                    <div class="tab-content" id="services">
+                        <ul class="services-list">
+                            <li><strong>Mechanical Services</strong> – Exchangers, boilers, heaters, tray towers, packed towers, and complete blind-to-blind execution.</li>
+                            <li><strong>Specialty Welding</strong> – Advanced welding solutions designed for critical applications.</li>
+                            <li><strong>Fabrication Services</strong> – Certified ASME and NBIC fabrication and repair capabilities.</li>
+                            <li><strong>Controlled Services</strong> – Precision bolting and machining solutions including:
+                                <ul>
+                                    <li>Torque Services</li>
+                                    <li>Bolt Tensioning</li>
+                                    <li>Nut Splitting</li>
+                                    <li>Ultrasonic Bolt Monitoring</li>
+                                    <li>Drilling & Tapping</li>
+                                    <li>Flange Facing</li>
+                                    <li>Beveling Services</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
+                <!-- End Tabs -->
+                
+                <p>With our headquarters strategically located, we're able to serve clients across the region with rapid response times and exceptional service quality.</p>
+                <a href="our_company.html" class="btn btn-red">Learn More</a>
+            </div>
+            
+            <div class="about-image">
+                <img src="./images/hero-banner-2.jpg" alt="Industrial Maintenance">
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+    /* Styles for the tabs */
+    .about-tabs {
+        margin: 20px 0;
+        border: 1px solid #e0e0e0;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    
+    .tabs-header {
+        display: flex;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .tab-link {
+        padding: 12px 20px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-weight: 600;
+        color: #666;
+        transition: all 0.3s ease;
+    }
+    
+    .tab-link:hover {
+        background-color: #e9e9e9;
+    }
+    
+    .tab-link.active {
+        color: #e30613;
+        border-bottom: 3px solid #e30613;
+        background-color: white;
+    }
+    
+    .tab-content {
+        display: none;
+        padding: 20px;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .services-list {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    
+    .services-list li {
+        margin-bottom: 10px;
+    }
+    
+    .services-list ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-top: 5px;
+    }
+</style>
+
+<script>
+    // Simple tab functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabLinks.forEach(function(tabLink) {
+            tabLink.addEventListener('click', function() {
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and contents
+                tabLinks.forEach(function(link) {
+                    link.classList.remove('active');
+                });
+                tabContents.forEach(function(content) {
+                    content.classList.remove('active');
+                });
+                
+                // Add active class to current tab and content
+                this.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    });
+</script>
 
     <!-- Safety Commitment Section -->
 <section class="safety-commitment-section">
@@ -2079,75 +2211,237 @@
         </div>
     </section>
 
+         <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #222;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #e30613;
+        }
+        
+        /* Estilos de la sección de contacto */
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+        
+        .contact-header h3 {
+            font-size: 1.8rem;
+            color: #e30613;
+            margin-bottom: 15px;
+        }
+        
+        .contact-header p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .contact-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+        }
+        
+        .contact-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            background: #f8f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: #e30613;
+            font-size: 1.8rem;
+        }
+        
+        .contact-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #222;
+        }
+        
+        .contact-card p {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        
+        .contact-card a {
+            color: #e30613;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-card a:hover {
+            color: #c10511;
+            text-decoration: underline;
+        }
+        
+        .emergency-alert {
+            background: #fff4f4;
+            border: 1px solid #e30613;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 40px;
+            text-align: center;
+            max-width: 700px;
+        }
+        
+        .emergency-alert h4 {
+            color: #e30613;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .emergency-alert p {
+            color: #555;
+        }
+        
+        .map-container {
+            margin-top: 50px;
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
     <!-- Contact Section -->
-     <section id="contacto-formulario"></section>
+    <section id="contacto-formulario"></section>
     <section class="contact section">
         <div class="container">
             <h2 class="section-title text-center">Contact Us</h2>
             
             <div class="contact-container">
-                <div class="contact-info">
+                <div class="contact-header">
                     <h3>Get in Touch</h3>
                     <p>Have questions about our services or need a quote for your next project? Contact us today and our team will be happy to assist you.</p>
-                    
-                    <ul>
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>1021 E El Rancho Rd
-McAllen TX 78503</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>281-703-7893
-</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@falconplantresources.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Here we're gonna put an attention hour<br>24/7 Emergency Service Available</span>
-                        </li>
-                    </ul>
                 </div>
                 
-                <div class="contact-form">
-                    <form action="#" method="post">
-                        <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" required>
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
+                        <h4>Our Location</h4>
+                        <p>1021 E El Rancho Rd</p>
+                        <p>McAllen TX 78503</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-phone"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
+                        <h4>Phone Number</h4>
+                        <p><a href="tel:2817037893">281-703-7893</a></p>
+                        <p>24/7 Emergency Service</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Needed</label>
-                            <select id="service" name="service">
-                                <option value="">Select a Service</option>
-                                <option value="mechanical">Mechanical Services</option>
-                                <option value="welding">Specialty Welding</option>
-                                <option value="torque">Torque Services</option>
-                                <option value="tensioning">Bolt Tensioning</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message *</label>
-                            <textarea id="message" name="message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-red" style="width: 100%;">Send Message</button>
-                    </form>
+                        <h4>Email Address</h4>
+                        <p><a href="mailto:info@falconplantresources.com">info@falconplantresources.com</a></p>
+                        <p>Send us a message anytime</p>
+                    </div>
+                </div>
+                
+                <div class="emergency-alert">
+                    <h4><i class="fas fa-exclamation-circle"></i> 24/7 Emergency Service</h4>
+                    <p>We're available round the clock for urgent situations. Call us immediately at <strong><a href="tel:2817037893">281-703-7893</a></strong> for emergency assistance.</p>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30570.257472366!2d-98.25373435000001!3d26.220314399999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8665a23d32a9fbd1%3A0x8d92e1f2ff6c129!2sMcAllen%2C%20TX%2078503%2C%20USA!5e0!3m2!1sen!2s!4v1718782345678!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
         </div>
@@ -2317,10 +2611,9 @@ McAllen TX 78503</span>
                     <p>Providing exceptional industrial maintenance services with a commitment to safety, quality, and customer satisfaction since 1998.</p>
                     
                     <div class="social-links">
-                        <a href="https://www.facebook.com/share/1DXyHPzE9C/"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.linkedin.com/in/falcon-plant-resources-29aa77340"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/invites/contact/?igsh=14hdr5x0bqglg&utm_content=z6dtil0"><i class="fab fa-instagram"></i></a>
-                    </div>
+<a href="https://www.facebook.com/share/1DXyHPzE9C/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+<a href="https://www.linkedin.com/in/falcon-plant-resources-29aa77340" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+<a href="https://www.instagram.com/invites/contact/?igsh=14hdr5v0bqglg&utm_content=z6dtil0" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>  </div>
                 </div>
                 
                 <div class="footer-links">
