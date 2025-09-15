@@ -2431,6 +2431,341 @@
 </style>
 
 
+<!-- QA/QC Deliverables Section -->
+<section class="qaqc-deliverables section">
+    <div class="container">
+        <h2 class="section-title text-center">Quality Assurance & Control Deliverables</h2>
+        
+        <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">
+            Every project is backed by comprehensive documentation ensuring full traceability, compliance, and quality assurance. 
+            Our meticulous record-keeping provides complete transparency throughout your project lifecycle.
+        </p>
+        
+        <div class="qaqc-grid">
+            <!-- Inspection & Test Plans -->
+            <div class="qaqc-card">
+                <div class="qaqc-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <div class="qaqc-content">
+                    <h3>Inspection & Test Plans (ITPs)</h3>
+                    <p>Comprehensive quality control plans outlining all inspection points, hold points, and verification activities throughout the project lifecycle.</p>
+                    <ul class="qaqc-features">
+                        <li>Stage-by-stage quality verification</li>
+                        <li>Client-approved inspection points</li>
+                        <li>Clear acceptance criteria</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Welder Certifications -->
+            <div class="qaqc-card">
+                <div class="qaqc-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="qaqc-content">
+                    <h3>Welder Certifications & WPS/PQRs</h3>
+                    <p>Complete documentation of welder qualifications, Welding Procedure Specifications (WPS), and Procedure Qualification Records (PQR).</p>
+                    <ul class="qaqc-features">
+                        <li>ASME Section IX compliance</li>
+                        <li>Current welder certifications</li>
+                        <li>Procedure qualification records</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Torque Documentation -->
+            <div class="qaqc-card">
+                <div class="qaqc-icon">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="qaqc-content">
+                    <h3>Torque Charts & Bolt Logs</h3>
+                    <p>Detailed records of all bolting operations including calculated torque values, tensioning sequences, and final verification data.</p>
+                    <ul class="qaqc-features">
+                        <li>Joint-specific torque values</li>
+                        <li>Sequence and pattern documentation</li>
+                        <li>Final verification reports</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- NDT Reports -->
+            <div class="qaqc-card">
+                <div class="qaqc-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div class="qaqc-content">
+                    <h3>NDT Reports (RT, UT, PT, MT)</h3>
+                    <p>Comprehensive non-destructive testing reports documenting examination results and compliance with acceptance criteria.</p>
+                    <ul class="qaqc-features">
+                        <li>Radiographic Testing (RT) films/reports</li>
+                        <li>Ultrasonic Testing (UT) data</li>
+                        <li>Liquid Penetrant (PT) & Magnetic Particle (MT) results</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Material Reports -->
+            <div class="qaqc-card">
+                <div class="qaqc-icon">
+                    <i class="fas fa-file-contract"></i>
+                </div>
+                <div class="qaqc-content">
+                    <h3>Material Test Reports (MTRs)</h3>
+                    <p>Certified documentation verifying chemical composition and mechanical properties of all materials used in your project.</p>
+                    <ul class="qaqc-features">
+                        <li>Full material traceability</li>
+                        <li>Chemical composition analysis</li>
+                        <li>Mechanical properties verification</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Weld Maps -->
+            <div class="qaqc-card">
+                <div class="qaqc-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <div class="qaqc-content">
+                    <h3>Weld Maps & Traceability Logs</h3>
+                    <p>Detailed weld mapping providing complete traceability from individual welds to specific procedures, materials, and personnel.</p>
+                    <ul class="qaqc-features">
+                        <li>Comprehensive weld identification</li>
+                        <li>Full history tracking</li>
+                        <li>As-built documentation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="qaqc-commitment">
+            <div class="commitment-content">
+                <h3>Reliable. Certified. Documented. Every time.</h3>
+                <p>Our commitment to comprehensive documentation ensures not just compliance, but complete transparency and peace of mind for your projects.</p>
+                
+                <div class="commitment-badges">
+                    <div class="badge">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Quality Assured</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-certificate"></i>
+                        <span>Fully Certified</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-clipboard-list"></i>
+                        <span>Meticulously Documented</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* ======================
+       QA/QC DELIVERABLES STYLES
+       ====================== */
+    .qaqc-deliverables {
+        background: linear-gradient(to bottom, #f9f9f9, #f0f0f0);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .qaqc-deliverables::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--primary-red), var(--primary-black));
+    }
+    
+    .qaqc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+    }
+    
+    .qaqc-card {
+        background: var(--white);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        border-top: 4px solid var(--primary-red);
+        position: relative;
+    }
+    
+    .qaqc-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    .qaqc-icon {
+        background: linear-gradient(135deg, var(--primary-red), #d12a34);
+        color: white;
+        font-size: 2rem;
+        padding: 25px;
+        text-align: center;
+    }
+    
+    .qaqc-content {
+        padding: 30px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .qaqc-content h3 {
+        color: var(--primary-black);
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+        position: relative;
+        padding-bottom: 10px;
+    }
+    
+    .qaqc-content h3:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background-color: var(--primary-red);
+    }
+    
+    .qaqc-content p {
+        margin-bottom: 20px;
+        color: var(--dark-gray);
+        flex-grow: 1;
+    }
+    
+    .qaqc-features {
+        list-style: none;
+        margin-top: 15px;
+    }
+    
+    .qaqc-features li {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding-left: 25px;
+    }
+    
+    .qaqc-features li:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--primary-red);
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+    
+    .qaqc-commitment {
+        background: var(--primary-black);
+        padding: 50px;
+        border-radius: 8px;
+        text-align: center;
+        margin-top: 60px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .qaqc-commitment::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: var(--primary-red);
+    }
+    
+    .commitment-content h3 {
+        color: var(--white);
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+    
+    .commitment-content p {
+        color: var(--primary-gray);
+        margin-bottom: 30px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .commitment-badges {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .badge {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        min-width: 150px;
+        transition: var(--transition);
+    }
+    
+    .badge:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+    }
+    
+    .badge i {
+        font-size: 2rem;
+        color: var(--primary-red);
+        margin-bottom: 10px;
+    }
+    
+    .badge span {
+        color: var(--white);
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+        .qaqc-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .qaqc-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .qaqc-commitment {
+            padding: 30px 20px;
+        }
+        
+        .commitment-badges {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .badge {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+</style>
+
+
     <!-- Stats Section -->
     <section class="stats section">
         <div class="container">
