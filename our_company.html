@@ -647,6 +647,319 @@
         </div>
     </section>
 
+
+   <!-- Learn More Section -->
+<section class="learn-more section bg-light-gray">
+    <style>
+        /* Learn More Section Styles */
+        .learn-more {
+            position: relative;
+        }
+
+        .learn-more-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .learn-more-text p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: var(--dark-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-header {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .service-icon {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-red);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-content h3 {
+            color: var(--primary-black);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .service-content p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .service-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .service-btn:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(189, 31, 40, 0.3);
+        }
+
+        .service-btn i {
+            font-size: 0.8rem;
+        }
+
+        .execution-highlight {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-red);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .execution-highlight h3 {
+            color: var(--primary-red);
+            margin-bottom: 15px;
+        }
+
+        .execution-highlight p {
+            margin-bottom: 0;
+        }
+
+        .cta-options {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 100px;
+        }
+
+        .cta-options h3 {
+            color: var(--primary-black);
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn-outline-red {
+            background-color: transparent;
+            color: var(--primary-red);
+            border: 2px solid var(--primary-red);
+        }
+
+        .btn-outline-red:hover {
+            background-color: var(--primary-red);
+            color: var(--white);
+        }
+
+        .cta-buttons .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            text-align: left;
+        }
+
+        /* Responsive Styles for Learn More Section */
+        @media (max-width: 992px) {
+            .learn-more-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .cta-options {
+                position: static;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-icon {
+                align-self: center;
+            }
+            
+            .cta-buttons .btn {
+                font-size: 0.9rem;
+                padding: 12px 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .service-item {
+                padding: 20px;
+            }
+            
+            .execution-highlight {
+                padding: 20px;
+            }
+            
+            .cta-options {
+                padding: 20px;
+            }
+        }
+    </style>
+    <div class="container">
+        <div class="section-title">
+            <h2>We Don't Pitch. We Partner.</h2>
+            <p>Discover how Falcon Plant Resources delivers real industrial solutions</p>
+        </div>
+        
+        <div class="learn-more-content">
+            <div class="learn-more-text">
+                <p>If you're looking for a company that understands the urgency, complexity, and standards of real industrial work—we'd like to show you how we deliver.</p>
+                
+                <div class="services-grid">
+                    <div class="service-item">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Mechanical Services</h3>
+                                <p>Full-scope support for exchangers, boilers, heaters, towers, and process units</p>
+                            </div>
+                        </div>
+                        <a href="./services/mechanical.html" class="service-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Specialty Welding</h3>
+                                <p>Certified welding for critical equipment, repairs, and pressure parts</p>
+                            </div>
+                        </div>
+                        <a href="./services/welding.html" class="service-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Fabrication</h3>
+                                <p>Code-compliant field and shop fabrication with fast turnaround and fit-for-purpose designs</p>
+                            </div>
+                        </div>
+                        <a href="./services/fabrication.html" class="service-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="service-item">
+                        <div class="service-header">
+                            <div class="service-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3>Controlled Services</h3>
+                                <p>Precision bolt tensioning, nut splitting, machining, torqueing, and leak containment</p>
+                            </div>
+                        </div>
+                        <a href="index.html" class="service-btn">
+                            Learn More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="execution-highlight">
+                    <h3>Turnkey Execution</h3>
+                    <p>Whether you're managing a shutdown, a revamp, or a last-minute callout, we offer <strong>turnkey blind-to-blind execution</strong> with skilled crews, QA/QC oversight, and zero handoffs. From first isolation to final reassembly, we own the scope.</p>
+                </div>
+            </div>
+            
+            <div class="cta-options">
+                <h3>Want to know more? Let's talk.</h3>
+                <div class="cta-buttons">
+                    <a href="#contacto-formulario" class="btn btn-red">
+                        <i class="fas fa-phone-alt"></i>
+                        Request a walkthrough of our process
+                    </a>
+                    <a href="#contacto-formulario" class="btn btn-outline-red">
+                        <i class="fas fa-file-alt"></i>
+                        Ask for our capabilities package
+                    </a>
+                    <a href="#contacto-formulario" class="btn btn-outline-red">
+                        <i class="fas fa-calendar-check"></i>
+                        Let's plan your next scope—together
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
     <!-- Stats Section -->
     <section class="stats section">
         <div class="container">
@@ -722,10 +1035,9 @@
                 <div class="footer-links">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Here will be the full location on Houston, TX</li>
-                        <li><i class="fas fa-phone"></i> Here we will put the phone number</li>
+                        <li><i class="fas fa-map-marker-alt"></i>McAllen, TX</li>
+                        <li><i class="fas fa-phone"></i>281-703-7893</li>
                         <li><i class="fas fa-envelope"></i> info@falconplantresources.com</li>
-                        <li><i class="fas fa-clock"></i> Here we're gonna put an attention hour</li>
                     </ul>
                 </div>
             </div>
