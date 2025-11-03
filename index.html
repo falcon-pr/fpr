@@ -1121,6 +1121,98 @@
                 <p><strong>Falcon Plant Resources is a multiservice company that provides a variety of mechanical, specialty welding, torque, and bolt tensioning services.</strong></p>
                 <p>Our technicians are trained to handle projects for areas and industries such as: wind energy, oil refineries, heavy machinery, pulp, maritime ports, and engineering & construction.</p>
                 
+                <!-- Nuevo Acordeón Desplegable -->
+                <div class="falcon-expandable-section">
+                    <div class="expandable-trigger" id="expandableTrigger">
+                        <div class="trigger-content">
+                            <div class="trigger-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="trigger-text">
+                                <span class="trigger-title">📘 Learn More</span>
+                                <span class="trigger-subtitle">Click to discover our partnership approach</span>
+                            </div>
+                            <div class="trigger-arrow">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expandable-content" id="expandableContent">
+                        <div class="expandable-inner">
+                            <div class="partnership-intro">
+                                <h4>We don't pitch. We partner.</h4>
+                                <p>If you're looking for a company that understands the urgency, complexity, and standards of real industrial work—we'd like to show you how we deliver.</p>
+                            </div>
+                            
+                            <div class="specialization-grid">
+                                <div class="specialty-item">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-cogs"></i>
+                                    </div>
+                                    <div class="specialty-content">
+                                        <h5>Mechanical Services</h5>
+                                        <p>Full-scope support for exchangers, boilers, heaters, towers, and process units</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="specialty-item">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-wrench"></i>
+                                    </div>
+                                    <div class="specialty-content">
+                                        <h5>Specialty Welding</h5>
+                                        <p>Certified welding for critical equipment, repairs, and pressure parts</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="specialty-item">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-industry"></i>
+                                    </div>
+                                    <div class="specialty-content">
+                                        <h5>Fabrication</h5>
+                                        <p>Code-compliant field and shop fabrication with fast turnaround and fit-for-purpose designs</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="specialty-item">
+                                    <div class="specialty-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="specialty-content">
+                                        <h5>Controlled Services</h5>
+                                        <p>Precision bolt tensioning, nut splitting, machining, torqueing, and leak containment</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="execution-approach">
+                                <p><strong>Whether you're managing a shutdown, a revamp, or a last-minute callout, we offer turnkey blind-to-blind execution with skilled crews, QA/QC oversight, and zero handoffs. From first isolation to final reassembly, we own the scope.</strong></p>
+                            </div>
+                            
+                            <div class="call-to-action">
+                                <h5>Want to know more? Let's talk.</h5>
+                                <div class="cta-options">
+                                    <div class="cta-option">
+                                        <div class="cta-icon">📞</div>
+                                        <span>Request a walkthrough of our process</span>
+                                    </div>
+                                    <div class="cta-option">
+                                        <div class="cta-icon">📄</div>
+                                        <span>Ask for our capabilities package</span>
+                                    </div>
+                                    <div class="cta-option">
+                                        <div class="cta-icon">🔧</div>
+                                        <span>Let's plan your next scope—together</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin del Acordeón Desplegable -->
+                
                 <!-- Tabs for additional information -->
                 <div class="about-tabs">
                     <div class="tabs-header">
@@ -1235,6 +1327,233 @@
         padding-left: 20px;
         margin-top: 5px;
     }
+
+    /* ======================
+       NUEVOS ESTILOS PARA EL ACORDEÓN
+       ====================== */
+    .falcon-expandable-section {
+        margin: 25px 0;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        background: var(--white);
+    }
+    
+    .expandable-trigger {
+        background: linear-gradient(135deg, var(--primary-red), #d12a34);
+        color: var(--white);
+        padding: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .expandable-trigger:hover {
+        background: linear-gradient(135deg, #d12a34, var(--primary-red));
+    }
+    
+    .trigger-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .trigger-icon {
+        font-size: 1.8rem;
+        margin-right: 15px;
+        color: var(--white);
+    }
+    
+    .trigger-text {
+        flex-grow: 1;
+    }
+    
+    .trigger-title {
+        display: block;
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+    
+    .trigger-subtitle {
+        display: block;
+        font-size: 0.9rem;
+        opacity: 0.9;
+    }
+    
+    .trigger-arrow {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .expandable-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+        background: var(--white);
+    }
+    
+    .expandable-inner {
+        padding: 0;
+    }
+    
+    .partnership-intro {
+        padding: 25px 25px 15px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .partnership-intro h4 {
+        color: var(--primary-red);
+        margin-bottom: 10px;
+        font-size: 1.4rem;
+    }
+    
+    .specialization-grid {
+        padding: 20px 25px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .specialty-item {
+        display: flex;
+        align-items: flex-start;
+    }
+    
+    .specialty-icon {
+        font-size: 1.5rem;
+        color: var(--primary-red);
+        margin-right: 15px;
+        margin-top: 5px;
+    }
+    
+    .specialty-content h5 {
+        color: var(--primary-black);
+        margin-bottom: 8px;
+        font-size: 1.1rem;
+    }
+    
+    .specialty-content p {
+        color: var(--dark-gray);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .execution-approach {
+        padding: 20px 25px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .execution-approach p {
+        margin: 0;
+        color: var(--dark-gray);
+        line-height: 1.6;
+    }
+    
+    .call-to-action {
+        padding: 25px;
+        text-align: center;
+    }
+    
+    .call-to-action h5 {
+        color: var(--primary-black);
+        margin-bottom: 20px;
+        font-size: 1.3rem;
+    }
+    
+    .cta-options {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .cta-option {
+        display: flex;
+        align-items: center;
+        padding: 12px 15px;
+        background: #f8f9fa;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+    }
+    
+    .cta-option:hover {
+        background: #e9ecef;
+        transform: translateX(5px);
+    }
+    
+    .cta-icon {
+        font-size: 1.3rem;
+        margin-right: 15px;
+    }
+    
+    .cta-option span {
+        color: var(--dark-gray);
+        font-weight: 500;
+    }
+    
+    /* Estados activos */
+    .falcon-expandable-section.active .trigger-arrow {
+        transform: rotate(180deg);
+    }
+    
+    .falcon-expandable-section.active .expandable-content {
+        max-height: 1000px;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+        .trigger-content {
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        .trigger-icon {
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+        
+        .trigger-text {
+            margin-bottom: 10px;
+        }
+        
+        .specialization-grid {
+            grid-template-columns: 1fr;
+            padding: 15px 20px;
+        }
+        
+        .partnership-intro,
+        .execution-approach,
+        .call-to-action {
+            padding: 20px;
+        }
+        
+        .cta-options {
+            gap: 10px;
+        }
+        
+        .cta-option {
+            padding: 10px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .expandable-trigger {
+            padding: 15px;
+        }
+        
+        .trigger-title {
+            font-size: 1.1rem;
+        }
+        
+        .trigger-subtitle {
+            font-size: 0.8rem;
+        }
+    }
 </style>
 
 <script>
@@ -1260,8 +1579,610 @@
                 document.getElementById(tabId).classList.add('active');
             });
         });
+
+        // Nuevo código para el acordeón desplegable
+        const expandableTrigger = document.getElementById('expandableTrigger');
+        const expandableSection = expandableTrigger.closest('.falcon-expandable-section');
+        const expandableContent = document.getElementById('expandableContent');
+        
+        expandableTrigger.addEventListener('click', function() {
+            expandableSection.classList.toggle('active');
+            
+            // Animación suave para el despliegue
+            if (expandableSection.classList.contains('active')) {
+                expandableContent.style.maxHeight = expandableContent.scrollHeight + 'px';
+            } else {
+                expandableContent.style.maxHeight = '0';
+            }
+        });
+
+        // Ajustar altura en redimensionamiento de ventana
+        window.addEventListener('resize', function() {
+            if (expandableSection.classList.contains('active')) {
+                expandableContent.style.maxHeight = expandableContent.scrollHeight + 'px';
+            }
+        });
     });
 </script>
+
+<!-- Sección 1: Por qué comenzamos -->
+<section class="falcon-origins-section section">
+    <div class="container">
+        <div class="origins-content">
+            <h2 class="origins-title">🦅 Why We Started Falcon Plant Resources</h2>
+            
+            <div class="origins-grid">
+                <div class="origin-card">
+                    <div class="origin-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Our Founding Goal</h3>
+                    <p>Falcon Plant Resources was founded with a simple goal: to bring clarity, reliability, and true ownership back into industrial service execution.</p>
+                </div>
+                
+                <div class="origin-card">
+                    <div class="origin-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Field Experience</h3>
+                    <p>Our team spent years in the field—working turnarounds, solving problems under pressure, and witnessing firsthand where things fell apart.</p>
+                </div>
+                
+                <div class="origin-card">
+                    <div class="origin-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3>Identifying the Problem</h3>
+                    <p>Crews were siloed, scopes were fragmented, and clients were left bridging the gaps. We knew there had to be a better way to deliver the work—start to finish, no excuses.</p>
+                </div>
+                
+                <div class="origin-card">
+                    <div class="origin-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Integrated Solutions</h3>
+                    <p>So we set out to build a company where Mechanical Services, Specialty Welding, Fabrication, and Controlled Services (Torque and Tensioning) could all operate under one roof—with one standard: From weld to bolt, we get it right.</p>
+                </div>
+                
+                <div class="origin-card">
+                    <div class="origin-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Building Trust</h3>
+                    <p>We didn't just want to offer services—we wanted to build trust. That meant showing up prepared, taking responsibility from blind to blind, and earning repeat business by delivering on every weld, every bolt-up, and every spec.</p>
+                </div>
+                
+                <div class="origin-card">
+                    <div class="origin-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Our Purpose</h3>
+                    <p>This is what Falcon Plant Resources was built for. And it's how we show up—every job, every time.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* ======================
+   ORIGINS SECTION STYLES
+   ====================== */
+.falcon-origins-section {
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    position: relative;
+    overflow: hidden;
+}
+
+.falcon-origins-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-red), var(--primary-black));
+}
+
+.origins-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.origins-title {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary-black);
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.origins-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-red);
+}
+
+.origins-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+}
+
+.origin-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--primary-red);
+    text-align: center;
+}
+
+.origin-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.origin-icon {
+    font-size: 2.5rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.origin-card h3 {
+    color: var(--primary-black);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.origin-card p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .origins-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .origins-title {
+        font-size: 1.8rem;
+    }
+    
+    .origin-card {
+        padding: 20px;
+    }
+}
+</style>
+
+<!-- Sección 2: Cómo entregamos -->
+<section class="delivery-method-section section">
+    <div class="container">
+        <div class="delivery-content">
+            <h2 class="delivery-title">🦅 How We Deliver</h2>
+            
+            <div class="delivery-intro">
+                <p>At Falcon Plant Resources, we don't just provide services—we deliver outcomes. Every job we take on is approached with a blind-to-blind mindset, where responsibility doesn't stop at the edge of the scope. We plan, execute, and close out projects with the same focus: zero rework, zero confusion, and total mechanical integrity.</p>
+            </div>
+            
+            <div class="delivery-steps">
+                <div class="delivery-step">
+                    <div class="step-header">
+                        <div class="step-icon">🔍</div>
+                        <h3>Clear Scope. Clean Start.</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>We begin with a clear, detailed understanding of your requirements. Our team scopes each job with precision, ensuring expectations, timelines, and resources are aligned before a single bolt is turned.</p>
+                    </div>
+                </div>
+                
+                <div class="delivery-step">
+                    <div class="step-header">
+                        <div class="step-icon">👷</div>
+                        <h3>Tight Crews. Certified Craftsmen.</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>We deploy experienced, specialty-trained crews who know the equipment, understand the stakes, and execute with discipline. From welding to fabrication to mechanical services, our teams deliver code-compliant, inspection-ready work from day one.</p>
+                    </div>
+                </div>
+                
+                <div class="delivery-step">
+                    <div class="step-header">
+                        <div class="step-icon">🔄</div>
+                        <h3>Full Control. One Point of Contact.</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>No handoffs. No subcontractor guessing games. You'll have a single, accountable contact who keeps the job on track—from isolation to final torque. We manage all logistics: scaffolding, machining, welding, cleaning, and inspections.</p>
+                    </div>
+                </div>
+                
+                <div class="delivery-step">
+                    <div class="step-header">
+                        <div class="step-icon">🧾</div>
+                        <h3>QA/QC Backed. Client-Ready Results.</h3>
+                    </div>
+                    <div class="step-content">
+                        <p>We close every job with full documentation, visual and pressure testing (as needed), and sign-off by qualified inspectors. You get a clear record of the work—done right, with no surprises.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* ======================
+   DELIVERY SECTION STYLES
+   ====================== */
+.delivery-method-section {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    position: relative;
+    overflow: hidden;
+}
+
+.delivery-method-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-red), var(--primary-black));
+}
+
+.delivery-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.delivery-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-black);
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.delivery-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-red);
+}
+
+.delivery-intro {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark-gray);
+    background: var(--white);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 4px solid var(--primary-red);
+}
+
+.delivery-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.delivery-step {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-top: 4px solid var(--primary-red);
+}
+
+.delivery-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    padding: 25px 25px 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.step-icon {
+    font-size: 2rem;
+    margin-right: 15px;
+}
+
+.step-header h3 {
+    color: var(--primary-black);
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.step-content {
+    padding: 0 25px 25px;
+}
+
+.step-content p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .delivery-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .delivery-title {
+        font-size: 1.8rem;
+    }
+    
+    .step-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 20px 10px;
+    }
+    
+    .step-icon {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .step-content {
+        padding: 0 20px 20px;
+    }
+}
+</style>
+
+<!-- Sección 3: Nuestras promesas -->
+<section class="promises-section section">
+    <div class="container">
+        <div class="promises-content">
+            <h2 class="promises-title">🤝 Our Promises</h2>
+            
+            <div class="promises-intro">
+                <p>At Falcon Plant Resources, our word is our contract. These five commitments define how we operate—and what our clients can count on every time.</p>
+            </div>
+            
+            <div class="promises-grid">
+                <div class="promise-card">
+                    <div class="promise-number">1</div>
+                    <div class="promise-content">
+                        <h3>Full-Scope Ownership</h3>
+                        <p>We don't just perform tasks—we manage outcomes. From initial isolation to final closeout, we stay accountable to every step, scope, and spec.</p>
+                    </div>
+                </div>
+                
+                <div class="promise-card">
+                    <div class="promise-number">2</div>
+                    <div class="promise-content">
+                        <h3>Safety is Built In</h3>
+                        <p>Safety isn't a box we check. It's embedded in our planning, our culture, and our field execution. Every crew member is trained, every procedure is verified, and every decision puts people first.</p>
+                    </div>
+                </div>
+                
+                <div class="promise-card">
+                    <div class="promise-number">3</div>
+                    <div class="promise-content">
+                        <h3>Work That Withstands Pressure</h3>
+                        <p>Our welding, fabrication, and mechanical services are performed to meet and exceed industry code requirements—inspected, certified, and ready for client and regulatory review.</p>
+                    </div>
+                </div>
+                
+                <div class="promise-card">
+                    <div class="promise-number">4</div>
+                    <div class="promise-content">
+                        <h3>Direct Communication</h3>
+                        <p>You won't chase updates or guess where things stand. We keep communication clear, direct, and consistent—before, during, and after the job.</p>
+                    </div>
+                </div>
+                
+                <div class="promise-card">
+                    <div class="promise-number">5</div>
+                    <div class="promise-content">
+                        <h3>Trust Earned Daily</h3>
+                        <p>We know trust isn't given—it's earned. That's why we show up prepared, finish what we start, and let our results speak louder than our words.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="promises-commitment">
+                <div class="commitment-content">
+                    <h3>Our Commitment to You</h3>
+                    <p>These promises aren't just words—they're the foundation of every project we undertake and the standard by which we measure our success.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* ======================
+   PROMISES SECTION STYLES
+   ====================== */
+.promises-section {
+    background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+    position: relative;
+    overflow: hidden;
+}
+
+.promises-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--primary-red), var(--primary-black));
+}
+
+.promises-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.promises-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--primary-black);
+    font-size: 2.2rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.promises-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-red);
+}
+
+.promises-intro {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--dark-gray);
+}
+
+.promises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.promise-card {
+    display: flex;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-red);
+}
+
+.promise-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.promise-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 70px;
+    background: var(--primary-red);
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.promise-content {
+    padding: 25px;
+    flex-grow: 1;
+}
+
+.promise-content h3 {
+    color: var(--primary-black);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.promise-content p {
+    color: var(--dark-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.promises-commitment {
+    background: var(--primary-black);
+    color: var(--white);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.promises-commitment::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-red);
+}
+
+.commitment-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    color: var(--white);
+}
+
+.commitment-content p {
+    max-width: 700px;
+    margin: 0 auto;
+    color: var(--primary-gray);
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .promises-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .promises-title {
+        font-size: 1.8rem;
+    }
+    
+    .promise-card {
+        flex-direction: column;
+    }
+    
+    .promise-number {
+        min-width: 100%;
+        padding: 15px;
+    }
+    
+    .promise-content {
+        padding: 20px;
+    }
+    
+    .promises-commitment {
+        padding: 30px 20px;
+    }
+}
+</style>
 
     <!-- Safety Commitment Section -->
 <section id="safety-commitment-section" class="safety-commitment-section">
@@ -3404,8 +4325,7 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <h4>Our Location</h4>
-                        <p>1021 E El Rancho Rd</p>
-                        <p>McAllen TX 78503</p>
+                        <p>McAllen TX</p>
                     </div>
                     
                     <div class="contact-card">
