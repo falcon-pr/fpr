@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (con FTP)
+name: Deploy to DreamHost (Recomendado por Soporte)
 
 on:
   push:
@@ -6,27 +6,28 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy-static-site:
     runs-on: ubuntu-latest
     steps:
       # 1. Trae el código de tu repositorio
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos (Usando el script original de SamKirkland)
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # 2. Sube los archivos con la ACCIÓN "appleboy" (Recomendada por Daniel)
+      - name: SFTP Deploy (appleboy)
+        uses: appleboy/sftp-action@master
         with:
           # --- Tus datos de login (Secrets) ---
-          server: ${{ secrets.FTP_SERVER }}
+        
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-
-          # --- ¡¡LA PARTE CLAVE (OPCIÓN 2)!! ---
-          protocol: ftp
-          port: 21
-          # --- ---
-
+          
+          # --- Forzamos el puerto correcto ---
+          port: 22 
+          
           # --- Tus datos de carpetas ---
-          remote-dir: ${{ secrets.REMOTE_PATH }}
-          local-dir: ./
+          # Carpeta local (todo el repositorio)
+          source: ./
+          # Carpeta remota (tu secret)
+          target: ${{ secrets.REMOTE_PATH }}
