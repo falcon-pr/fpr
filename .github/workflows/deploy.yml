@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (con FTP)
+name: Deploy to DreamHost (con SCP Seguro)
 
 on:
   push:
@@ -6,30 +6,27 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  deploy-static-site:
     runs-on: ubuntu-latest
     steps:
       # 1. Trae el código de tu repositorio
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos (Usando el script de SamKirkland)
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # 2. Sube los archivos con la ACCIÓN "scp"
+      - name: SCP Deploy (appleboy)
+        uses: appleboy/scp-action@v0.1.4
         with:
           # --- Tus datos de login (Secrets) ---
-          server: ${{ secrets.FTP_SERVER }}
+          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-
-          # --- ¡¡LA ÚNICA COMBINACIÓN QUE FUNCIONA!! ---
-          protocol: ftp
-          port: 21
-          # --- ---
-
-          # --- Tus datos de carpetas ---
-          remote-dir: ${{ secrets.REMOTE_PATH }}
-          local-dir: ./
+          port: 22 
           
-          # (YA NO ESTÁ LA LÍNEA 'dangerous-clean-slate'
-          #  PARA EVITAR EL ERROR 550)
+          # --- Tus datos de carpetas (¡CON EL ARREGLO!) ---
+          source: ./
+          
+          # Esta es la corrección. Le decimos que la ruta es
+          # relativa a la "casa" del usuario.
+          # NO usamos el secret esta vez, la escribimos directo.
+          target: falconplantresources.com
