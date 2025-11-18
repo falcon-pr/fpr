@@ -1,0 +1,33 @@
+name: Deploy to DreamHost (Static HTML)
+
+# Esto le dice a GitHub que ejecute esta acción
+# cada vez que haces 'push' a la rama 'main'
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy-static-site:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Este paso descarga tu código al servidor temporal de GitHub
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Este es el paso clave: se conecta a DreamHost usando
+      #    tus 'Secrets' y sube los archivos por SFTP
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          # Lee los secretos que creaste
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          remote-dir: ${{ secrets.REMOTE_PATH }}
+          
+          # Sube todo el contenido (./)
+          local-dir: ./
+          
+          # Borra los archivos viejos en DreamHost antes de subir los nuevos
+          dangerous-clean-slate: true
