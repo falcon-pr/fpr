@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (SFTP con Contraseña)
+name: Deploy to DreamHost (con FTPS Seguro)
 
 on:
   push:
@@ -6,28 +6,32 @@ on:
       - main
 
 jobs:
-  deploy-static-site:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       # 1. Trae el código de tu repositorio
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos con una ACCIÓN de SFTP que SÍ usa contraseña
-      - name: SFTP Deploy (easing)
-        uses: easing/sftp-deploy@v3
+      # 2. Sube los archivos (Usando el script de SamKirkland)
+      - name: FTPS Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           # --- Tus datos de login (Secrets) ---
-          server_host: ${{ secrets.FTP_SERVER }}
-          server_port: 22 # Puerto 22 para SFTP
-          ssh_username: ${{ secrets.FTP_USERNAME }}
-          ssh_password: ${{ secrets.FTP_PASSWORD }}
-          
+          # (Estos ya están correctos)
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          # --- ¡¡LA PARTE CLAVE (FTPS)!! ---
+          # Le decimos que use "ftps".
+          # FTPS suele usar el puerto 21, así que lo
+          # especificamos para estar seguros.
+          protocol: ftps
+          port: 21
+          # --- ---
+
           # --- Tus datos de carpetas ---
-          # Carpeta local (todo el repositorio)
-          local_path: ./
-          # Carpeta remota (tu secret)
-          remote_path: ${{ secrets.REMOTE_PATH }}
-          
-          # Opciones de subida
-          sync_delete: true # Borra archivos viejos (la forma segura)
+          remote-dir: ${{ secrets.REMOTE_PATH }}
+          local-dir: ./
+          # (Dejamos quitada la línea 'dangerous-clean-slate')
