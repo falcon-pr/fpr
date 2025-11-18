@@ -1,5 +1,6 @@
 name: Deploy to DreamHost (con SCP Seguro)
 
+# Ejecutar esto cada vez que haga push a main
 on:
   push:
     branches:
@@ -9,24 +10,25 @@ jobs:
   deploy-static-site:
     runs-on: ubuntu-latest
     steps:
-      # 1. Trae el código de tu repositorio
+      # 1. Traer el código del repo
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos con la ACCIÓN "scp"
+      # 2. Subir los archivos con la acción SCP
       - name: SCP Deploy (appleboy)
         uses: appleboy/scp-action@v0.1.4
         with:
-          # --- Tus datos de login (Secrets) ---
+          # --- Mis datos de login (Secrets) ---
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          
+          # --- Forzar el puerto 22 ---
           port: 22 
           
-          # --- Tus datos de carpetas (¡CON EL ARREGLO!) ---
+          # --- Mis datos de carpetas (con la corrección) ---
           source: ./
           
-          # Esta es la corrección. Le decimos que la ruta es
-          # relativa a la "casa" del usuario.
-          # NO usamos el secret esta vez, la escribimos directo.
+          # Esta es la corrección de la ruta
+          # (relativa a la 'casa' del usuario)
           target: falconplantresources.com
