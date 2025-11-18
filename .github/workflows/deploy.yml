@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (Static HTML)
+name: Deploy to DreamHost (con FTP)
 
 on:
   push:
@@ -6,27 +6,27 @@ on:
       - main
 
 jobs:
-  deploy-static-site:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       # 1. Trae el código de tu repositorio
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos a DreamHost
+      # 2. Sube los archivos (Usando el script original de SamKirkland)
       - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           # --- Tus datos de login (Secrets) ---
+          # (Estos no cambian, el usuario y pass son los mismos)
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          
-          # --- ¡¡LA LÍNEA NUEVA Y CRUCIAL!! ---
-          # Forzamos el protocolo a SFTP
-          protocol: sftp 
-          # Forzamos el puerto a 22
-          port: 22
+
+          # --- ¡¡LA PARTE CLAVE (OPCIÓN 2)!! ---
+          # Le decimos que use "ftp" y el puerto 21
+          protocol: ftp
+          port: 21
           # --- ---
 
           # --- Tus datos de carpetas ---
