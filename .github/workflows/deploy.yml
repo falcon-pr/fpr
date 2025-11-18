@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (con FTPS Seguro)
+name: Deploy to DreamHost (con FTP)
 
 on:
   push:
@@ -14,24 +14,22 @@ jobs:
         uses: actions/checkout@v4
 
       # 2. Sube los archivos (Usando el script de SamKirkland)
-      - name: FTPS Deploy
+      - name: FTP Deploy
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           # --- Tus datos de login (Secrets) ---
-          # (Estos ya están correctos)
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
 
-          # --- ¡¡LA PARTE CLAVE (FTPS)!! ---
-          # Le decimos que use "ftps".
-          # FTPS suele usar el puerto 21, así que lo
-          # especificamos para estar seguros.
-          protocol: ftps
+          # --- ¡¡LA ÚNICA COMBINACIÓN QUE FUNCIONA!! ---
+          protocol: ftp
           port: 21
           # --- ---
 
           # --- Tus datos de carpetas ---
           remote-dir: ${{ secrets.REMOTE_PATH }}
           local-dir: ./
-          # (Dejamos quitada la línea 'dangerous-clean-slate')
+          
+          # (YA NO ESTÁ LA LÍNEA 'dangerous-clean-slate'
+          #  PARA EVITAR EL ERROR 550)
