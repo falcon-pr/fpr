@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (Recomendado por Soporte)
+name: Deploy to DreamHost (Recomendado por Soporte v2)
 
 on:
   push:
@@ -13,12 +13,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos con la ACCIÓN "appleboy" (Recomendada por Daniel)
+      # 2. Sube los archivos con la ACCIÓN "appleboy" (Versión estable)
       - name: SFTP Deploy (appleboy)
-        uses: appleboy/sftp-action@master
+        uses: appleboy/sftp-action@v0.1.4 # <--- ¡EL CAMBIO ESTÁ AQUÍ!
         with:
           # --- Tus datos de login (Secrets) ---
-        
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
@@ -27,7 +26,5 @@ jobs:
           port: 22 
           
           # --- Tus datos de carpetas ---
-          # Carpeta local (todo el repositorio)
           source: ./
-          # Carpeta remota (tu secret)
           target: ${{ secrets.REMOTE_PATH }}
