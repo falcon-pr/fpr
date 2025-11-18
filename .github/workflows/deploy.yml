@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (Tercer Intento de SFTP)
+name: Deploy to DreamHost (SFTP con Contraseña)
 
 on:
   push:
@@ -13,17 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos con una ACCIÓN DE SFTP DIFERENTE
-      - name: SFTP Deploy (wlixcc)
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
+      # 2. Sube los archivos con una ACCIÓN de SFTP que SÍ usa contraseña
+      - name: SFTP Deploy (easing)
+        uses: easing/sftp-deploy@v3
         with:
           # --- Tus datos de login (Secrets) ---
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server: ${{ secrets.FTP_SERVER }}
-          
-          # --- Forzamos el puerto correcto ---
-          port: 22 
+          server_host: ${{ secrets.FTP_SERVER }}
+          server_port: 22 # Puerto 22 para SFTP
+          ssh_username: ${{ secrets.FTP_USERNAME }}
+          ssh_password: ${{ secrets.FTP_PASSWORD }}
           
           # --- Tus datos de carpetas ---
           # Carpeta local (todo el repositorio)
@@ -31,5 +29,5 @@ jobs:
           # Carpeta remota (tu secret)
           remote_path: ${{ secrets.REMOTE_PATH }}
           
-          # Borra los archivos viejos en el servidor
-          delete: true
+          # Opciones de subida
+          sync_delete: true # Borra archivos viejos (la forma segura)
