@@ -18,13 +18,11 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           # --- Tus datos de login (Secrets) ---
-          # (Estos no cambian, el usuario y pass son los mismos)
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
 
           # --- ¡¡LA PARTE CLAVE (OPCIÓN 2)!! ---
-          # Le decimos que use "ftp" y el puerto 21
           protocol: ftp
           port: 21
           # --- ---
@@ -32,4 +30,3 @@ jobs:
           # --- Tus datos de carpetas ---
           remote-dir: ${{ secrets.REMOTE_PATH }}
           local-dir: ./
-          dangerous-clean-slate: true
