@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (Recomendado por Soporte v2)
+name: Deploy to DreamHost (con SCP Seguro)
 
 on:
   push:
@@ -13,11 +13,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos con la ACCIÓN "appleboy" (Versión estable)
-      - name: SFTP Deploy (appleboy)
-        uses: appleboy/sftp-action@v0.1.4 # <--- ¡EL CAMBIO ESTÁ AQUÍ!
+      # 2. Sube los archivos con la ACCIÓN "scp" (La otra recomendada por Daniel)
+      - name: SCP Deploy (appleboy)
+        uses: appleboy/scp-action@v0.1.4
         with:
           # --- Tus datos de login (Secrets) ---
+          # (Son los mismos)
           host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
