@@ -1,4 +1,4 @@
-name: Deploy to DreamHost (con SCP Seguro)
+name: Deploy to DreamHost (Tercer Intento de SFTP)
 
 on:
   push:
@@ -13,19 +13,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Sube los archivos con la ACCIÓN "scp" (La otra recomendada por Daniel)
-      - name: SCP Deploy (appleboy)
-        uses: appleboy/scp-action@v0.1.4
+      # 2. Sube los archivos con una ACCIÓN DE SFTP DIFERENTE
+      - name: SFTP Deploy (wlixcc)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.1
         with:
           # --- Tus datos de login (Secrets) ---
-          # (Son los mismos)
-          host: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_SERVER }}
           
           # --- Forzamos el puerto correcto ---
           port: 22 
           
           # --- Tus datos de carpetas ---
-          source: ./
-          target: ${{ secrets.REMOTE_PATH }}
+          # Carpeta local (todo el repositorio)
+          local_path: ./
+          # Carpeta remota (tu secret)
+          remote_path: ${{ secrets.REMOTE_PATH }}
+          
+          # Borra los archivos viejos en el servidor
+          delete: true
