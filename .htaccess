@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# 1. Redirigir index.html a la raíz (/)
+# Esto hace que si alguien escribe "tudominio.com/index.html",
+# el navegador lo cambie automáticamente a "tudominio.com"
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.html\ HTTP/
+RewriteRule ^index\.html$ / [R=301,L]
+
+# 2. Quitar la extensión .html (Para el futuro)
+# Si creas una página "contacto.html", la gente podrá entrar
+# escribiendo solo "tudominio.com/contacto"
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
