@@ -11,11 +11,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Importing Montserrat to match Falcon CSS / Universal Plant style -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/falcon.css">
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-87ZVJN8SYC"></script>
     <script>
@@ -24,325 +27,6 @@
       gtag('js', new Date());
       gtag('config', 'G-87ZVJN8SYC');
     </script>
-
-    <style>
-        /* --- Variables & Reset --- */
-        :root {
-            --primary-red: #BD1F28;
-            --primary-black: #000000;
-            --primary-gray: #A2A9AD;
-            --white: #FFFFFF;
-            --dark-gray: #333333;
-            --light-gray: #F5F5F5;
-            --transition: all 0.3s ease;
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background-color: var(--white);
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4, h5, h6 { font-weight: 700; line-height: 1.2; margin-bottom: 1rem; }
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; }
-        
-        @media (min-width: 768px) {
-            h1 { font-size: 3.5rem; }
-            h2 { font-size: 2.5rem; }
-        }
-        
-        p { margin-bottom: 1rem; }
-        
-        a { color: var(--primary-red); text-decoration: none; transition: var(--transition); }
-        a:hover { color: var(--primary-black); }
-        img { max-width: 100%; height: auto; }
-        ul { list-style: none; }
-        
-        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
-        /* --- Micro-interacciones: Botones --- */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-            transition: var(--transition);
-            text-align: center;
-            cursor: pointer;
-        }
-        
-        .btn-red {
-            background-color: var(--primary-red);
-            color: var(--white);
-            border: 2px solid var(--primary-red);
-        }
-        
-        .btn-red:hover {
-            background-color: var(--primary-black);
-            border-color: var(--primary-black);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(189, 31, 40, 0.3);
-        }
-        
-        .btn-outline-white {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-        
-        .btn-outline-white:hover {
-            background-color: var(--white);
-            color: var(--primary-black);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-        }
-        
-        .text-center { text-align: center; }
-        .text-white { color: var(--white); }
-        .bg-light-gray { background-color: var(--light-gray); }
-        
-        .section { padding: 80px 0; }
-        
-        .section-title { position: relative; margin-bottom: 50px; text-align: center; }
-        .section-title:after {
-            content: ''; display: block; width: 80px; height: 4px;
-            background-color: var(--primary-red); margin: 20px auto 0;
-        }
-        
-        /* --- Header Styles --- */
-        header {
-            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-        
-        header.scrolled {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .header-container {
-            display: flex; justify-content: space-between; align-items: center; padding: 15px 0;
-        }
-        
-        .logo { display: flex; align-items: center; }
-        .logo-img { height: 60px; transition: var(--transition); }
-        
-        /* Navigation */
-        .nav-menu { display: flex; }
-        .nav-menu li { position: relative; margin-left: 30px; }
-        .nav-menu li a { font-weight: 600; color: var(--primary-black); padding: 5px 0; position: relative; }
-        .nav-menu li a:after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px;
-            background-color: var(--primary-red); transition: var(--transition);
-        }
-        .nav-menu li a:hover:after, .nav-menu li.active a:after { width: 100%; }
-        
-        /* Submenu */
-        .submenu {
-            position: absolute; top: 100%; left: 0; width: 200px;
-            background-color: var(--white);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0; visibility: hidden; transition: var(--transition); z-index: 100;
-        }
-        .nav-menu li:hover .submenu { opacity: 1; visibility: visible; }
-        .submenu li { margin: 0; padding: 0; border-bottom: 1px solid #eee; }
-        .submenu li a { display: block; padding: 10px 15px; }
-        
-        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; }
-
-        /* --- 3. HERO SECTION MEJORADA --- */
-        .hero {
-            position: relative;
-            height: 100vh;
-            min-height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
-            padding-top: 80px;
-            overflow: hidden;
-        }
-        
-        .hero-video-bg {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
-        }
-        
-        .hero-video-bg video { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* Overlay con Gradiente Oscuro */
-        .hero-video-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.8) 100%);
-            z-index: 0;
-        }
-        
-        .hero-content {
-            position: relative; z-index: 2;
-            width: 100%;
-            max-width: 75ch; /* Ancho óptimo de lectura */
-            padding: 0 20px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem; margin-bottom: 20px; text-transform: uppercase; font-weight: 800;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        .mission-text {
-            font-size: 1.5rem; font-weight: 700; text-transform: uppercase;
-            margin: 25px 0; display: inline-block; position: relative;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        .logo-hero-flotante {
-            position: absolute; right: 5%; top: 20%; width: min(20vw, 150px); z-index: 2;
-            animation: rebote-flotante 4s ease-in-out infinite;
-        }
-        
-        @keyframes rebote-flotante {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        /* --- About Section --- */
-        .about-content { display: flex; align-items: center; gap: 50px; }
-        .about-text { flex: 1; }
-        .about-image { flex: 1; position: relative; }
-        .about-image img { border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); }
-
-        /* --- 4. SERVICES SECTION (CSS Grid Moderno) --- */
-        .services { background-color: var(--light-gray); padding: 100px 0; }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        
-        .service-card {
-            background-color: var(--white);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-            border-color: rgba(189, 31, 40, 0.2);
-        }
-        
-        .service-image { height: 240px; overflow: hidden; }
-        .service-image img {
-            width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;
-        }
-        .service-card:hover .service-image img { transform: scale(1.1); }
-        
-        .service-content {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .service-content h3 { color: var(--primary-red); margin-bottom: 15px; font-size: 1.4rem; }
-        .service-content p { margin-bottom: 25px; flex-grow: 1; }
-        .service-content .btn { align-self: flex-start; padding: 10px 25px; font-size: 0.9rem; }
-
-        /* --- Stats Section --- */
-        .stats {
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
-            url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1544&q=80') center/cover;
-            padding: 80px 0; color: var(--white); text-align: center;
-        }
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; }
-        .stat-number { font-size: 3rem; font-weight: 800; color: var(--primary-red); margin-bottom: 10px; }
-
-        /* --- Contact & Footer --- */
-        .contact-container { display: flex; gap: 50px; }
-        .contact-info { flex: 1; }
-        .contact-form { flex: 1; background-color: var(--light-gray); padding: 30px; border-radius: 8px; }
-        .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 20px; }
-        
-        /* --- 6. MAPA GOOGLE (Iframe con Estilo) --- */
-        .google-map-wrapper {
-            margin-top: 30px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: 4px solid white;
-            height: 300px;
-        }
-        .google-map-wrapper iframe { display: block; width: 100%; height: 100%; }
-
-        footer { background-color: var(--primary-black); color: var(--white); padding: 60px 0 20px; }
-        .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-about p { color: var(--primary-gray); margin-top: 15px; }
-        .footer-links h3 { color: var(--white); border-bottom: 2px solid var(--primary-red); display: inline-block; padding-bottom: 10px; margin-bottom: 20px; }
-        .footer-links a { color: var(--primary-gray); }
-        .footer-links a:hover { color: var(--primary-red); padding-left: 5px; }
-        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid #333; margin-top: 40px; color: #666; }
-        
-        .social-links { display: flex; gap: 15px; margin-top: 15px; }
-        .social-links a { width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; transition: var(--transition); }
-        .social-links a:hover { background: var(--primary-red); transform: translateY(-3px); }
-
-        /* Responsive Global */
-        @media (max-width: 992px) {
-            .about-content, .contact-container { flex-direction: column; }
-            .about-image { order: -1; }
-            .hero h1 { font-size: 2.5rem; }
-        }
-        @media (max-width: 768px) {
-            .mobile-menu-btn { display: block; }
-            .nav-menu {
-                position: fixed; top: 80px; left: -100%; width: 100%; height: 100vh;
-                background: var(--white); flex-direction: column; align-items: center;
-                padding-top: 50px; transition: 0.3s;
-            }
-            .nav-menu.active { left: 0; }
-            .nav-menu li { margin: 15px 0; }
-            .logo-hero-flotante { display: none; }
-        }
-        
-        .about-tabs { margin: 20px 0; border: 1px solid #e0e0e0; border-radius: 8px; overflow: hidden; }
-        .tabs-header { display: flex; background: #f5f5f5; }
-        .tab-link { padding: 15px 20px; border: none; background: none; cursor: pointer; flex: 1; font-weight: 600; font-family: 'Poppins', sans-serif; }
-        .tab-link.active { background: white; color: var(--primary-red); border-bottom: 3px solid var(--primary-red); }
-        .tab-content { display: none; padding: 25px; }
-        .tab-content.active { display: block; }
-        
-        /* Careers Section */
-        .careers-section { background-color: var(--light-gray); padding: 100px 0; position: relative; overflow: hidden; }
-        .careers-section::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 5px; background: linear-gradient(90deg, var(--primary-red), var(--primary-black)); }
-        .careers-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin: 50px 0; }
-        .careers-card { background: var(--white); padding: 30px; border-radius: 8px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: var(--transition); text-align: center; border-top: 3px solid var(--primary-red); }
-        .careers-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .careers-icon { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 20px; }
-        .careers-cta { background: var(--primary-black); padding: 40px; border-radius: 8px; text-align: center; margin-top: 50px; position: relative; overflow: hidden; }
-        .careers-cta::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 4px; background: var(--primary-red); }
-        .cta-content h3 { color: var(--white); margin-bottom: 15px; }
-        .cta-content p { color: var(--primary-gray); margin-bottom: 25px; }
-    </style>
 </head>
 <body>
 
@@ -377,7 +61,8 @@
 
     <section class="hero">
        <div class="hero-video-bg">
-            <video autoplay muted loop playsinline style="filter: brightness(1.1);">
+            <!-- Video plays cleanly without heavy overlay -->
+            <video autoplay muted loop playsinline>
                 <source src="./images/herovid.mp4" type="video/mp4">
                 <source src="./images/herovid.webm" type="video/webm">
             </video>
@@ -387,7 +72,7 @@
         <div class="hero-content" data-aos="fade-up">
             <h1 id="typewriter-text">Think Safely. Act Quality. Deliver Excellence.</h1>
             
-            <p class="mission-text">
+            <p class="mission-text" style="font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin: 25px 0; display: inline-block;">
                 <span class="mission-word">Our</span> <span class="mission-word">mindset</span> 
                 <span class="mission-word">drives</span> <span class="mission-word">our</span> 
                 <span class="mission-word">mission.</span>
@@ -458,7 +143,7 @@
             <h2 class="section-title text-center" data-aos="fade-up">Our Services</h2>
             
             <div class="services-grid">
-                <div class="service-card" data-aos="fade-up">
+                <div class="service-card" data-aos="fade-up" style="--bg-image: url('images/final_mechanical.jpg');">
                     <div class="service-image">
                         <img src="./images/mechanical.png" alt="Mechanical Services">
                     </div>
@@ -469,7 +154,7 @@
                     </div>
                 </div>
                 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100" style="--bg-image: url('images/welding_hero.jpg');">
                     <div class="service-image">
                         <img src="./images/welding.png" alt="Specialty Welding">
                     </div>
@@ -480,7 +165,7 @@
                     </div>
                 </div>
                 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200" style="--bg-image: url('images/hero-banner-2.jpg');">
                     <div class="service-image">
                         <img src="./images/fabricationimg.png" alt="Fabrication Services">
                     </div>
@@ -491,7 +176,7 @@
                     </div>
                 </div>
                 
-                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300" style="--bg-image: url('images/torque_final.jpg');">
                     <div class="service-image">
                         <img src="./images/torque.png" alt="Controlled Services">
                     </div>
@@ -505,7 +190,8 @@
         </div>
     </section>
 
-    <section class="stats section">
+    <!-- Updated to use local user-provided image -->
+    <section class="stats section" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/new_hero.jpg') center/cover;">
         <div class="container">
             <h2 class="section-title text-center text-white" data-aos="fade-up">Why Choose Falcon</h2>
             <div class="stats-grid">
@@ -544,18 +230,6 @@
                         <li><i class="fas fa-phone"></i> <a href="tel:2817037893">281-703-7893</a></li>
                         <li><i class="fas fa-envelope"></i> <a href="mailto:info@falconplantresources.com">info@falconplantresources.com</a></li>
                     </ul>
-
-                    <div class="google-map-wrapper" data-aos="fade-up" data-aos-delay="200">
-                        <iframe 
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3584.646293923416!2d-98.2475920245942!3d26.04512277717376!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86650e4f65060665%3A0x50b6729f5215050!2s1021%20E%20El%20Rancho%20Rd%2C%20McAllen%2C%20TX%2078503!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
-                            width="100%" 
-                            height="300" 
-                            style="border:0;" 
-                            allowfullscreen="" 
-                            loading="lazy" 
-                            referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                    </div>
 
                 </div>
                 
@@ -670,10 +344,16 @@
         document.querySelectorAll('.tab-link').forEach(button => {
             button.addEventListener('click', () => {
                 document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.remove('active');
+                    content.style.animation = 'none'; /* Reset animation */
+                    content.offsetHeight; /* Trigger reflow */
+                });
                 
                 button.classList.add('active');
-                document.getElementById(button.getAttribute('data-tab')).classList.add('active');
+                const activeContent = document.getElementById(button.getAttribute('data-tab'));
+                activeContent.classList.add('active');
+                activeContent.style.animation = 'fadeInUp 0.5s ease forwards';
             });
         });
     </script>
@@ -681,11 +361,13 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000,
+            duration: 1200, /* Slower, smoother animation like Universal Plant */
+            easing: 'ease-out-cubic', /* More professional easing */
             once: true,
-            offset: 100
+            offset: 50, /* Trigger slightly earlier */
+            mirror: false,
+            anchorPlacement: 'top-bottom'
         });
     </script>
 </body>
 </html>
-
