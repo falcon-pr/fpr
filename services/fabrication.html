@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
      <link rel="icon" href="./image001.png" type="image/png">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-87ZVJN8SYC"></script>
@@ -308,10 +309,32 @@
             padding-top: 80px;
         }
         
-        .service-hero-content {
-            max-width: 800px;
+        .service-hero-content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        .service-hero-text {
+            flex: 1;
+            text-align: left;
+        }
+
+        .service-hero-image {
+            flex: 0 0 350px;
+            max-width: 350px;
+        }
+
+        .hero-cert-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 4px solid var(--white);
         }
         
         .service-hero h1 {
@@ -319,13 +342,12 @@
             margin-bottom: 20px;
             text-transform: uppercase;
             font-weight: 800;
-            animation: fadeInUp 1s ease;
+            /* animation handled by AOS now */
         }
         
         .service-hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
-            animation: fadeInUp 1s ease 0.3s both;
         }
         
         /* Service Detail Section */
@@ -542,6 +564,21 @@
             .equipment-grid {
                 grid-template-columns: 1fr;
             }
+
+            .service-hero-content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service-hero-text {
+                text-align: center;
+            }
+
+            .service-hero-image {
+                flex: 0 0 auto;
+                max-width: 80%;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -578,10 +615,15 @@
 
     <!-- Hero Section -->
     <section class="service-hero">
-        <div class="service-hero-content">
-            <h1>Certified Fabrication Services</h1>
-            <p>ASME U & NBIC R Stamp certified fabrication and repair solutions for pressure vessels, piping systems, and structural components</p>
-            <a href="#contact" class="btn btn-red">Request Fabrication Quote</a>
+        <div class="service-hero-content-wrapper container">
+            <div class="service-hero-text">
+                <h1 data-aos="fade-up">Certified Fabrication Services</h1>
+                <p data-aos="fade-up" data-aos-delay="200">ASME U & NBIC R Stamp certified fabrication and repair solutions for pressure vessels, piping systems, and structural components</p>
+                <a href="#contact" class="btn btn-red" data-aos="fade-up" data-aos-delay="400">Request Fabrication Quote</a>
+            </div>
+            <div class="service-hero-image" data-aos="fade-left" data-aos-delay="600">
+                 <img src="../images/cert_asme.jpg" alt="ASME Certificate" class="hero-cert-img">
+            </div>
         </div>
     </section>
 
@@ -750,6 +792,9 @@
         
         <div class="certified-fabrication-intro">
             <p>Falcon Plant Resources provides code-compliant fabrication and repair services for pressure vessels, boilers, piping, and process equipment. Backed by ASME U, S, and NBIC R Stamp certifications, we deliver trusted solutions for critical industries.</p>
+            <div class="cert-display" data-aos="zoom-in" style="margin-top: 30px;">
+                <img src="../images/cert_nb.jpg" alt="National Board R Certificate" class="body-cert-img" style="max-width: 300px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 4px;">
+            </div>
         </div>
         
         <div class="certified-services-grid">
@@ -1428,6 +1473,15 @@ footer {
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
     </script>
 </body>
 </html>
