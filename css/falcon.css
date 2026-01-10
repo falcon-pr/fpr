@@ -509,7 +509,6 @@ header.scrolled {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 50px;
-    perspective: 1000px; /* Enable 3D space for children */
 }
 
 .service-card {
@@ -517,7 +516,7 @@ header.scrolled {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: var(--transition); /* Be careful this doesn't fight Anime.js */
+    transition: var(--transition);
     position: relative;
     z-index: 1;
     display: flex;
@@ -525,8 +524,7 @@ header.scrolled {
     min-height: 450px;
     /* Initial state for Stagger */
     opacity: 0;
-    transform-style: preserve-3d; /* Preserve 3D for children if needed */
-    will-change: transform, opacity; /* Optimize for animation */
+    transform: translateY(20px);
 }
 
 /* New Bg Structure for Zoom Effect */
@@ -559,7 +557,12 @@ header.scrolled {
 }
 
 .service-card:hover .service-card-bg::after {
-    opacity: 0.7; /* Dark overlay to make white text pop against the image */
+    opacity: 0.8; /* Darker on hover? Or just visible?
+       Original design: grayscale header -> full color bg.
+       Current plan: Bg Zoom. We want the image visible.
+       Let's keep it simple: Image is there. Overlay fades in/out.
+    */
+    opacity: 0; /* Let the image shine through on hover */
 }
 
 /* Wait, original design had image hidden initially?

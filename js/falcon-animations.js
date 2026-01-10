@@ -120,29 +120,20 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(title);
     });
 
-    // 6. SERVICE CARDS STAGGER - Top Tier Animation
+    // 6. SERVICE CARDS STAGGER (Idea 12)
+    // We can use a separate observer for the grid to trigger stagger
     const servicesGrid = document.querySelector('.services-grid');
     if (servicesGrid) {
         const gridObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Reset initial state for animation
-                    anime.set('.service-card', {
-                        opacity: 0,
-                        translateY: 50,
-                        scale: 0.8,
-                        rotateX: 10
-                    });
-
                     anime({
                         targets: '.service-card',
                         opacity: [0, 1],
-                        translateY: [50, 0],
-                        scale: [0.8, 1],
-                        rotateX: [10, 0],
-                        delay: anime.stagger(200),
-                        duration: 1200,
-                        easing: 'easeOutElastic(1, .6)' // Nice bounce
+                        translateY: [20, 0],
+                        delay: anime.stagger(150), // 150ms delay between each
+                        duration: 800,
+                        easing: 'easeOutCubic'
                     });
                     gridObserver.unobserve(entry.target);
                 }
@@ -152,74 +143,47 @@ document.addEventListener('DOMContentLoaded', () => {
         gridObserver.observe(servicesGrid);
     }
 
-    // 7. SERVICE CARD HOVER - 3D TILT & LEVITATION (Top of the Top)
+    // 7. SERVICE CARD HOVER LEVITATION & BG ZOOM (Idea 13 & 15)
     document.querySelectorAll('.service-card').forEach(card => {
         const bg = card.querySelector('.service-card-bg');
 
-        // Disable native transition for smoother anime.js control during interaction
-        card.style.transition = 'none';
-
-        // Mouse Move (3D Tilt)
-        card.addEventListener('mousemove', (e) => {
-            if (window.innerWidth < 768) return; // Disable on mobile
-
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within the element.
-            const y = e.clientY - rect.top;  // y position within the element.
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -10; // Max rotation 10deg
-            const rotateY = ((x - centerX) / centerX) * 10;
-
+        card.addEventListener('mouseenter', () => {
+            // Levitation
             anime({
                 targets: card,
-                rotateX: rotateX,
-                rotateY: rotateY,
-                scale: 1.05,
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
-                duration: 100, // Very fast for responsiveness
-                easing: 'linear'
+                translateY: -10,
+                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.2)',
+                duration: 400,
+                easing: 'easeOutCubic'
             });
-
-            // BG Parallax Effect
+            // Bg Zoom
             if (bg) {
-                const moveX = ((x - centerX) / centerX) * -10;
-                const moveY = ((y - centerY) / centerY) * -10;
-
                 anime({
                     targets: bg,
-                    scale: 1.15, // Zoom in
-                    translateX: moveX,
-                    translateY: moveY,
-                    duration: 100,
+                    scale: 1.1,
+                    duration: 6000, // Slow continuous zoom? Or just on hover?
+                    // User asked for "Zoom Lento". Typically implies continuous or slow on hover.
+                    // Let's do a slow zoom in on hover.
                     easing: 'linear'
                 });
             }
         });
 
-        // Mouse Leave (Reset)
         card.addEventListener('mouseleave', () => {
-            // Restore smooth transition for reset
-             anime({
+            // Reset Levitation
+            anime({
                 targets: card,
-                rotateX: 0,
-                rotateY: 0,
-                scale: 1,
                 translateY: 0,
                 boxShadow: '0 5px 15px rgba(0, 0, 0, 0.05)',
-                duration: 800,
-                easing: 'easeOutElastic(1, .5)'
+                duration: 400,
+                easing: 'easeOutCubic'
             });
-
+            // Reset Bg Zoom
             if (bg) {
                 anime({
                     targets: bg,
                     scale: 1,
-                    translateX: 0,
-                    translateY: 0,
-                    duration: 800,
+                    duration: 400,
                     easing: 'easeOutQuad'
                 });
             }
