@@ -204,21 +204,7 @@
             align-items: center;
         }
         
-        .logo-img {
-            height: 50px;
-            transition: var(--transition);
-        }
-        
-        .logo-text {
-            font-weight: 800;
-            font-size: 1.5rem;
-            margin-left: 10px;
-            color: var(--primary-black);
-        }
-        
-        .logo-text span {
-            color: var(--primary-red);
-        }
+        /* .logo-img styles handled by falcon.css now */
         
         /* Navigation (Same as main site) */
         .nav-menu {
@@ -581,14 +567,28 @@
             }
         }
     </style>
+    <!-- Anime.js & Custom Animations -->
+    <script src="../js/anime.min.js"></script>
+    <script src="../js/falcon-animations.js" defer></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="../images/logo_icon.png" alt="Falcon Loading">
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
-    <header id="header">
+            <header id="header">
        <div class="container header-container">
             <a href="../index.html" class="logo">
-                <img src="../image001.png" alt="Falcon Plant Resources Logo" class="logo-img">
-                <span class="logo-text">FALCON <span>PLANT RESOURCES</span></span>
+                <img src="../images/header1.png" alt="Falcon Plant Resources Logo" class="logo-img">
+
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -596,18 +596,19 @@
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about-us">Our Company</a></li>
-                    <li class="active">
-                        <a href="../index.html#services-id">Services</a>
+                    <li><a href="../index.html#about-us">Safety</a></li>
+                    <li><a href="../index.html#about-us">Quality</a></li>
+                    <li>
+                        <a href="../index.html#services-id">Industrial Services</a>
                         <ul class="submenu">
-                      <li><a href="mechanical.html">Mechanical Services</a></li>
+                            <li><a href="mechanical.html">Mechanical Services</a></li>
                             <li><a href="welding.html">Specialty Welding</a></li>
-                        <li><a href="fabrication.html">Fabrication Services</a></li> 
+                            <li><a href="fabrication.html">Fabrication</a></li>
                             <li><a href="controlled.html">Controlled Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="../index.html#contacto-formulario">Contact</a></li>
+                    <li><a href="../index.html#contacto-formulario">Contact us</a></li>
+                    <li><a href="../index.html#careers">Careers</a></li>
                 </ul>
             </nav>
         </div>
@@ -630,7 +631,7 @@
     <!-- Service Detail Section -->
     <section class="service-detail section">
         <div class="container">
-            <h2 class="section-title">Certified Fabrication & Repair Services</h2>
+            <h2 class="section-title">Certified Fabrication & Repair Services<span class="title-line"></span></h2>
             <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">At Falcon Plant Resources, we deliver fully certified fabrication and repair services for pressure vessels, process piping, and structural components — ensuring strict compliance with ASME and NBIC codes.</p>
             
             <div class="service-detail-content">
@@ -650,7 +651,7 @@
     <!-- Services Section -->
     <section class="materials-section section">
         <div class="container">
-            <h2 class="section-title">Our Fabrication Services Include:</h2>
+            <h2 class="section-title">Our Fabrication Services Include:<span class="title-line"></span></h2>
             
             <div class="materials-grid">
                 <div class="material-card">
@@ -792,8 +793,20 @@
         
         <div class="certified-fabrication-intro">
             <p>Falcon Plant Resources provides code-compliant fabrication and repair services for pressure vessels, boilers, piping, and process equipment. Backed by ASME U, S, and NBIC R Stamp certifications, we deliver trusted solutions for critical industries.</p>
-            <div class="cert-display" data-aos="zoom-in" style="margin-top: 30px;">
-                <img src="../images/cert_nb.jpg" alt="National Board R Certificate" class="body-cert-img" style="max-width: 300px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 4px;">
+
+            <div class="certs-container" style="margin-top: 40px;">
+                <div class="cert-wrapper anime-cert">
+                    <img src="../images/cert_asme.jpg" alt="ASME U Stamp Certificate">
+                    <p class="cert-caption">ASME U Stamp</p>
+                </div>
+                <div class="cert-wrapper anime-cert">
+                    <img src="../images/cert_s_stamp.jpg" alt="ASME S Stamp Certificate">
+                    <p class="cert-caption">ASME S Stamp</p>
+                </div>
+                <div class="cert-wrapper anime-cert">
+                    <img src="../images/cert_nb.jpg" alt="National Board R Certificate">
+                    <p class="cert-caption">NBIC R Stamp</p>
+                </div>
             </div>
         </div>
         
@@ -937,6 +950,41 @@
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.7;
+}
+
+.certs-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cert-wrapper {
+    flex: 0 0 250px;
+    text-align: center;
+    opacity: 0; /* Hidden initially for animation */
+}
+
+.cert-wrapper img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border: 3px solid white;
+    transition: transform 0.3s ease;
+}
+
+.cert-wrapper:hover img {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.cert-caption {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #BD1F28;
 }
 
 .certified-services-grid {

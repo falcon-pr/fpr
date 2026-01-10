@@ -455,34 +455,48 @@
             }
         }
     </style>
+    <!-- Anime.js & Custom Animations -->
+    <script src="../js/anime.min.js"></script>
+    <script src="../js/falcon-animations.js" defer></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="../images/logo_icon.png" alt="Falcon Loading">
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
-    <header id="header">
+            <header id="header">
        <div class="container header-container">
-    <a href="../index.html" class="logo">
-        <!-- Reemplazo del SVG por PNG -->
-        <img src="../image001.png" alt="Falcon Plant Resources Logo" class="logo-img">
-        <span class="logo-text">FALCON <span>PLANT RESOURCES</span></span>
-    </a>
+            <a href="../index.html" class="logo">
+                <img src="../images/header1.png" alt="Falcon Plant Resources Logo" class="logo-img">
+
+            </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about-us">Our Company</a></li>
-                    <li class="active">
-                        <a href="../index.html#services-id">Services</a>
+                    <li><a href="../index.html#about-us">Safety</a></li>
+                    <li><a href="../index.html#about-us">Quality</a></li>
+                    <li>
+                        <a href="../index.html#services-id">Industrial Services</a>
                         <ul class="submenu">
-                          <li><a href="mechanical.html">Mechanical Services</a></li>
+                            <li><a href="mechanical.html">Mechanical Services</a></li>
                             <li><a href="welding.html">Specialty Welding</a></li>
-                        <li><a href="fabrication.html">Fabrication Services</a></li> 
+                            <li><a href="fabrication.html">Fabrication</a></li>
                             <li><a href="controlled.html">Controlled Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="../index.html#contacto-formulario">Contact</a></li>
+                    <li><a href="../index.html#contacto-formulario">Contact us</a></li>
+                    <li><a href="../index.html#careers">Careers</a></li>
                 </ul>
             </nav>
         </div>
@@ -782,7 +796,7 @@
         <div class="service-detail-content">
             <!-- Texto (izquierda en desktop) -->
             <div class="service-detail-text">
-                <h2 class="section-title">Precision Torque Solutions</h2>
+                <h2 class="section-title">Precision Torque Solutions<span class="title-line"></span></h2>
                 <p><strong>Our torque services are performed with hydraulic and/or electric machines for a high variety of bolt diameters and a wide range of torque values. We use different tool formats according to technical needs and work environments.</strong></p>
                 <p>At Falcon Plant Resources, we understand that proper torque application is critical for equipment integrity, safety, and performance. Our certified technicians use state-of-the-art equipment to ensure precise torque application every time.</p>
                 
@@ -921,7 +935,7 @@
     <!-- Why Choose Section -->
     <section class="why-choose section">
         <div class="container">
-            <h2 class="section-title">Why Choose FPR for Torque Services</h2>
+            <h2 class="section-title">Why Choose FPR for Torque Services<span class="title-line"></span></h2>
             <p>We know the importance of industrial maintenance processes that greatly help to extend the useful life and proper functioning of structures, avoiding damage to facilities, unforeseen stops, and keeping various machinery in good condition.</p>
             
             <div class="benefits-grid">

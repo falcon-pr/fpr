@@ -21,14 +21,28 @@
       gtag('js', new Date());
       gtag('config', 'G-87ZVJN8SYC');
     </script>
+    <!-- Anime.js & Custom Animations -->
+    <script src="../js/anime.min.js"></script>
+    <script src="../js/falcon-animations.js" defer></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="../images/logo_icon.png" alt="Falcon Loading">
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
-    <header id="header">
+            <header id="header">
        <div class="container header-container">
             <a href="../index.html" class="logo">
-                <img src="../image001.png" alt="Falcon Plant Resources Logo" class="logo-img">
-                <span class="logo-text">FALCON <span>PLANT RESOURCES</span></span>
+                <img src="../images/header1.png" alt="Falcon Plant Resources Logo" class="logo-img">
+
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -36,18 +50,19 @@
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about-us">Our Company</a></li>
-                    <li class="active">
-                        <a href="../index.html#services-id">Services</a>
+                    <li><a href="../index.html#about-us">Safety</a></li>
+                    <li><a href="../index.html#about-us">Quality</a></li>
+                    <li>
+                        <a href="../index.html#services-id">Industrial Services</a>
                         <ul class="submenu">
-                            <li><a href="../services/mechanical.html">Mechanical Services</a></li>
-                        <li><a href="../services/welding.html">Specialty Welding</a></li>
-                         <li><a href="../services/controlled.html">Controlled Services</a></li>
-                         <li><a href="../services/fabrication.html">Fabrication</a></li> 
+                            <li><a href="mechanical.html">Mechanical Services</a></li>
+                            <li><a href="welding.html">Specialty Welding</a></li>
+                            <li><a href="fabrication.html">Fabrication</a></li>
+                            <li><a href="controlled.html">Controlled Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="../index.html#contacto-formulario">Contact</a></li>
+                    <li><a href="../index.html#contacto-formulario">Contact us</a></li>
+                    <li><a href="../index.html#careers">Careers</a></li>
                 </ul>
             </nav>
         </div>
@@ -65,7 +80,7 @@
     <!-- Service Detail Section -->
     <section class="service-detail section">
         <div class="container">
-            <h2 class="section-title">Expert Welding Solutions</h2>
+            <h2 class="section-title">Expert Welding Solutions<span class="title-line"></span></h2>
             <p class="text-center" style="max-width: 800px; margin: 0 auto 40px;">With a wealth of expertise amassed over years of tackling the most challenging welding scenarios, our team is well-versed in resolving intricate issues within various refineries and gas plant units.</p>
             
             <div class="service-detail-content">
@@ -84,7 +99,7 @@
     <!-- Materials Section -->
     <section class="materials-section section">
         <div class="container">
-            <h2 class="section-title">We Provide Welding for Alloys Such As:</h2>
+            <h2 class="section-title">We Provide Welding for Alloys Such As:<span class="title-line"></span></h2>
             
             <div class="materials-grid">
                 <div class="material-card">

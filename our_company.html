@@ -11,6 +11,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
         <link rel="icon" href="./image001.png" type="image/png">
+    <!-- Anime.js & Custom Animations -->
+    <script src="js/anime.min.js"></script>
+    <script src="js/falcon-animations.js" defer></script>
+
+    <link rel="icon" href="./image001.png" type="image/png">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/falcon.css">
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-87ZVJN8SYC"></script>
     <script>
@@ -202,21 +210,7 @@
             align-items: center;
         }
         
-        .logo-img {
-            height: 50px;
-            transition: var(--transition);
-        }
-        
-        .logo-text {
-            font-weight: 800;
-            font-size: 1.5rem;
-            margin-left: 10px;
-            color: var(--primary-black);
-        }
-        
-        .logo-text span {
-            color: var(--primary-red);
-        }
+        /* .logo-img styles handled by falcon.css now */
         
         /* Navigation */
         .nav-menu {
@@ -586,12 +580,27 @@
     </style>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="images/logo_icon.png" alt="Falcon Loading">
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
+        <header id="header">
+       <div class="container header-container">
             <a href="index.html" class="logo">
-                <img src="./image001.png" alt="Falcon Plant Resources Logo" class="logo-img">
-                <span class="logo-text">FALCON <span>PLANT RESOURCES</span></span>
+                <img src="./images/header1.png" alt="Falcon Plant Resources Logo" class="logo-img">
             </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
@@ -599,18 +608,19 @@
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html">Home</a></li>
-                    <li class="active"><a href="our_company.html">Our Company</a></li>
+                    <li><a href="index.html#about-us">Safety</a></li>
+                    <li><a href="index.html#about-us">Quality</a></li>
                     <li>
-                        <a href="#services-id">Services</a>
+                        <a href="index.html#services-id">Industrial Services</a>
                         <ul class="submenu">
                             <li><a href="./services/mechanical.html">Mechanical Services</a></li>
                             <li><a href="./services/welding.html">Specialty Welding</a></li>
-                            <li><a href="./services/torque.html">Torque Services</a></li>
-                            <li><a href="./services/bolt_tensioning.html">Bolt Tensioning</a></li>
+                            <li><a href="./services/fabrication.html">Fabrication</a></li>
+                            <li><a href="./services/controlled.html">Controlled Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="#contacto-formulario">Contact</a></li>
+                    <li><a href="index.html#contacto-formulario">Contact us</a></li>
+                    <li><a href="index.html#careers">Careers</a></li>
                 </ul>
             </nav>
         </div>
@@ -861,7 +871,7 @@
         }
     </style>
     <div class="container">
-        <div class="section-title">
+        <div class="section-title"><span class="title-line"></span>>
             <h2>We Don't Pitch. We Partner.</h2>
             <p>Discover how Falcon Plant Resources delivers real industrial solutions</p>
         </div>
@@ -963,7 +973,7 @@
     <!-- Stats Section -->
     <section class="stats section">
         <div class="container">
-            <h2 class="section-title text-white">Why Choose Falcon</h2>
+            <h2 class="section-title text-white"><span class="title-line"></span>>Why Choose Falcon</h2>
             
             <div class="stats-grid">
                 <div class="stat-item">
@@ -1000,6 +1010,9 @@
             <a href="#contacto-formulario" class="btn btn-outline-white">Contact Us Today</a>
         </div>
     </section>
+
+    <!-- Back to Top Button (Idea 8) -->
+    <button id="backToTop" class="back-to-top"><i class="fas fa-rocket"></i></button>
 
     <!-- Footer -->
     <footer>

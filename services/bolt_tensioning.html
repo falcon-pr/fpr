@@ -21,33 +21,48 @@
       gtag('js', new Date());
       gtag('config', 'G-87ZVJN8SYC');
     </script>
+    <!-- Anime.js & Custom Animations -->
+    <script src="../js/anime.min.js"></script>
+    <script src="../js/falcon-animations.js" defer></script>
 </head>
 <body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-logo">
+                <img src="../images/logo_icon.png" alt="Falcon Loading">
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
     <!-- Header -->
-    <header id="header">
+            <header id="header">
        <div class="container header-container">
-    <a href="../index.html" class="logo">
-        <img src="../image001.png" alt="Falcon Plant Resources Logo" class="logo-img">
-        <span class="logo-text">FALCON <span>PLANT RESOURCES</span></span>
-    </a>
+            <a href="../index.html" class="logo">
+                <img src="../images/header1.png" alt="Falcon Plant Resources Logo" class="logo-img">
+
+            </a>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about-us">Our Company</a></li>
-                    <li class="active">
-                        <a href="../index.html#services-id">Services</a>
+                    <li><a href="../index.html#about-us">Safety</a></li>
+                    <li><a href="../index.html#about-us">Quality</a></li>
+                    <li>
+                        <a href="../index.html#services-id">Industrial Services</a>
                         <ul class="submenu">
-                           <li><a href="../services/mechanical.html">Mechanical Services</a></li>
-                        <li><a href="../services/welding.html">Specialty Welding</a></li>
-                        <li><a href="../services/fabrication.html">Fabrication Services</a></li>
-                        <li><a href="../services/controlled.html">Controlled Tensioning</a></li>
+                            <li><a href="mechanical.html">Mechanical Services</a></li>
+                            <li><a href="welding.html">Specialty Welding</a></li>
+                            <li><a href="fabrication.html">Fabrication</a></li>
+                            <li><a href="controlled.html">Controlled Services</a></li>
                         </ul>
                     </li>
-                    <li><a href="../index.html#contacto-formulario">Contact</a></li>
+                    <li><a href="../index.html#contacto-formulario">Contact us</a></li>
+                    <li><a href="../index.html#careers">Careers</a></li>
                 </ul>
             </nav>
         </div>
@@ -66,7 +81,7 @@
         <div class="container">
             <div class="service-detail-content">
                 <div class="service-detail-text">
-                    <h2 class="section-title">Precision Bolt Tensioning</h2>
+                    <h2 class="section-title">Precision Bolt Tensioning<span class="title-line"></span></h2>
                     <p><strong>At FPR we have a wide range of suitable and quality tools to carry out all types of tensioning work including hydraulic tensioners with different metrics, hydraulic pumps, hoses and accessories.</strong></p>
                     <p>Bolt tensioning is an advanced technique that offers a more precise and controlled way to apply torque to bolts. This provides more reliable and consistent connections compared to hand tightening or hydraulic torque wrenches. Our highly qualified personnel ensure safe and effective bolt tensioning for all your industrial needs.</p>
                     
@@ -127,7 +142,7 @@
     <!-- Why Choose Section -->
     <section class="why-choose section">
         <div class="container">
-            <h2 class="section-title">Our Bolt Tensioning Service Includes</h2>
+            <h2 class="section-title">Our Bolt Tensioning Service Includes<span class="title-line"></span></h2>
             <p>We provide comprehensive bolt tensioning solutions for industrial applications, ensuring precision, safety, and reliability in every project.</p>
             
             <div class="benefits-grid">
