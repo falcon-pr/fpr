@@ -4,6 +4,15 @@
  * Implements 10+ interactive animations for enhanced UX.
  */
 document.addEventListener('DOMContentLoaded', () => {
+    // Helper for mobile detection
+    const getIsMobile = () => window.matchMedia("(max-width: 768px)").matches;
+
+    // Zero-out Hero Image initially to prevent FOUC/Glitch before animation
+    const heroImgInitial = document.querySelector('.service-hero-image');
+    if (heroImgInitial) {
+        heroImgInitial.style.opacity = '0';
+    }
+
     // 1. PRELOADER (Idea 9)
     // Pulse the logo
     anime({
@@ -49,13 +58,48 @@ document.addEventListener('DOMContentLoaded', () => {
         // Idea 1 (Typewriter) was NOT in the user's specific selection list "5,8,9,11,12,13,14,15,16,19,20",
         // so I will skip Typewriter to respect the explicit choice, but ensure the title appears.
 
-        anime({
-            targets: '.hero h1, .hero-company h1, .service-hero h1, .service-hero-content h1',
-            opacity: [0, 1],
-            translateY: [20, 0],
-            duration: 1000,
-            easing: 'easeOutCubic'
-        });
+        if (getIsMobile()) {
+            // Simple fade for mobile
+            anime({
+                targets: '.hero h1, .hero-company h1, .service-hero h1, .service-hero-content h1',
+                opacity: [0, 1],
+                translateY: [10, 0],
+                duration: 800,
+                easing: 'easeOutQuad'
+            });
+        } else {
+            anime({
+                targets: '.hero h1, .hero-company h1, .service-hero h1, .service-hero-content h1',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 1000,
+                easing: 'easeOutCubic'
+            });
+        }
+
+        // Animate Service Hero Image (Certificate)
+        const heroImg = document.querySelector('.service-hero-image');
+        if (heroImg) {
+            if (getIsMobile()) {
+                anime({
+                    targets: heroImg,
+                    opacity: [0, 1],
+                    translateY: [20, 0],
+                    duration: 800,
+                    easing: 'easeOutQuad',
+                    delay: 200
+                });
+            } else {
+                anime({
+                    targets: heroImg,
+                    opacity: [0, 1],
+                    translateX: [50, 0], // slide from right
+                    duration: 1000,
+                    easing: 'easeOutCubic',
+                    delay: 600
+                });
+            }
+        }
 
         // 3. SCROLL INDICATOR (Idea 5)
         anime({
@@ -66,6 +110,33 @@ document.addEventListener('DOMContentLoaded', () => {
             duration: 800,
             easing: 'easeInOutSine'
         });
+
+    // Floating Falcon Animation
+    const falcon = document.querySelector('.logo-hero-flotante');
+    if (falcon && !getIsMobile()) {
+        // Idle Animation (Bounce)
+        const bounceAnim = anime({
+            targets: falcon,
+            translateY: [-10, 10], // Gentle bounce
+            direction: 'alternate',
+            loop: true,
+            duration: 2000,
+            easing: 'easeInOutSine',
+            autoplay: true
+        });
+
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+             // Pause animation while scrolling to "accompany" rigidly
+             bounceAnim.pause();
+
+             // Resume bounce when scroll stops
+             clearTimeout(scrollTimeout);
+             scrollTimeout = setTimeout(() => {
+                 bounceAnim.play();
+             }, 150);
+        });
+    }
     }
 
     // 4. RIPPLE EFFECT (Idea 8)
@@ -120,21 +191,47 @@ document.addEventListener('DOMContentLoaded', () => {
         sectionObserver.observe(title);
     });
 
-    // 6. SERVICE CARDS STAGGER (Idea 12)
-    // We can use a separate observer for the grid to trigger stagger
-    const servicesGrid = document.querySelector('.services-grid');
+    // 6. SERVICE CARDS STAGGER - Top Tier Animation
+    const servicesGrid = document.querySelector('.services-grid, .safety-grid, .quality-grid');
     if (servicesGrid) {
         const gridObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    anime({
-                        targets: '.service-card',
-                        opacity: [0, 1],
-                        translateY: [20, 0],
-                        delay: anime.stagger(150), // 150ms delay between each
-                        duration: 800,
-                        easing: 'easeOutCubic'
-                    });
+                    if (getIsMobile()) {
+                        // Simplified Mobile Animation
+                        anime.set('.service-card, .safety-card, .quality-card', {
+                            opacity: 0,
+                            translateY: 20
+                        });
+
+                        anime({
+                            targets: '.service-card, .safety-card, .quality-card',
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            delay: anime.stagger(100),
+                            duration: 800,
+                            easing: 'easeOutQuad'
+                        });
+                    } else {
+                        // Desktop - Full 3D Elastic Effect
+                        anime.set('.service-card, .safety-card, .quality-card', {
+                            opacity: 0,
+                            translateY: 50,
+                            scale: 0.8,
+                            rotateX: 10
+                        });
+
+                        anime({
+                            targets: '.service-card, .safety-card, .quality-card',
+                            opacity: [0, 1],
+                            translateY: [50, 0],
+                            scale: [0.8, 1],
+                            rotateX: [10, 0],
+                            delay: anime.stagger(200),
+                            duration: 1200,
+                            easing: 'easeOutElastic(1, .6)' // Nice bounce
+                        });
+                    }
                     gridObserver.unobserve(entry.target);
                 }
             });
@@ -143,47 +240,74 @@ document.addEventListener('DOMContentLoaded', () => {
         gridObserver.observe(servicesGrid);
     }
 
-    // 7. SERVICE CARD HOVER LEVITATION & BG ZOOM (Idea 13 & 15)
-    document.querySelectorAll('.service-card').forEach(card => {
+    // 7. SERVICE CARD HOVER - 3D TILT & LEVITATION (Top of the Top)
+    document.querySelectorAll('.service-card, .safety-card, .quality-card').forEach(card => {
         const bg = card.querySelector('.service-card-bg');
 
-        card.addEventListener('mouseenter', () => {
-            // Levitation
+        // Disable native transition for smoother anime.js control during interaction
+        card.style.transition = 'none';
+
+        // Mouse Move (3D Tilt)
+        card.addEventListener('mousemove', (e) => {
+            if (window.innerWidth < 768) return; // Disable on mobile
+
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element.
+            const y = e.clientY - rect.top;  // y position within the element.
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -10; // Max rotation 10deg
+            const rotateY = ((x - centerX) / centerX) * 10;
+
             anime({
                 targets: card,
-                translateY: -10,
-                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.2)',
-                duration: 400,
-                easing: 'easeOutCubic'
+                rotateX: rotateX,
+                rotateY: rotateY,
+                scale: 1.05,
+                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.3)',
+                duration: 100, // Very fast for responsiveness
+                easing: 'linear'
             });
-            // Bg Zoom
+
+            // BG Parallax Effect
             if (bg) {
+                const moveX = ((x - centerX) / centerX) * -10;
+                const moveY = ((y - centerY) / centerY) * -10;
+
                 anime({
                     targets: bg,
-                    scale: 1.1,
-                    duration: 6000, // Slow continuous zoom? Or just on hover?
-                    // User asked for "Zoom Lento". Typically implies continuous or slow on hover.
-                    // Let's do a slow zoom in on hover.
+                    scale: 1.15, // Zoom in
+                    translateX: moveX,
+                    translateY: moveY,
+                    duration: 100,
                     easing: 'linear'
                 });
             }
         });
 
+        // Mouse Leave (Reset)
         card.addEventListener('mouseleave', () => {
-            // Reset Levitation
-            anime({
+            // Restore smooth transition for reset
+             anime({
                 targets: card,
+                rotateX: 0,
+                rotateY: 0,
+                scale: 1,
                 translateY: 0,
                 boxShadow: '0 5px 15px rgba(0, 0, 0, 0.05)',
-                duration: 400,
-                easing: 'easeOutCubic'
+                duration: 800,
+                easing: 'easeOutElastic(1, .5)'
             });
-            // Reset Bg Zoom
+
             if (bg) {
                 anime({
                     targets: bg,
                     scale: 1,
-                    duration: 400,
+                    translateX: 0,
+                    translateY: 0,
+                    duration: 800,
                     easing: 'easeOutQuad'
                 });
             }
@@ -241,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsSection = document.querySelector('.stats');
     if (statsSection) {
         // Idea 10: Center Trigger for Mobile
-        const isMobileStats = window.innerWidth < 768;
+        const isMobileStats = getIsMobile();
         const statsRootMargin = isMobileStats ? '-40% 0px -40% 0px' : '0px';
 
         const statsObserver = new IntersectionObserver((entries) => {
@@ -448,10 +572,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Use matchMedia to check if mobile? Or apply to all touch events.
     // The request said "exclusive for smartphone view", but usually safe for all.
     // Let's filter by width to be precise to the request.
-    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-    if (isMobile) {
-        const serviceCards = document.querySelectorAll('.service-card');
+    if (getIsMobile()) {
+        const serviceCards = document.querySelectorAll('.service-card, .safety-card, .quality-card');
         serviceCards.forEach(card => {
             card.addEventListener('click', () => {
                 // Quick scale pulse
@@ -471,36 +594,48 @@ document.addEventListener('DOMContentLoaded', () => {
         const certsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Stagger Entrance
-                    anime({
-                        targets: '.anime-cert',
-                        opacity: [0, 1],
-                        translateY: [50, 0],
-                        scale: [0.8, 1],
-                        rotate: {
-                            value: [-5, 0], // Slight rotation for effect
-                            duration: 1000
-                        },
-                        delay: anime.stagger(200),
-                        duration: 1200,
-                        easing: 'easeOutElastic(1, .8)',
-                        complete: function() {
-                             // Continuous Floating Effect after entrance
-                             anime({
-                                targets: '.anime-cert img',
-                                translateY: [-5, 5],
-                                direction: 'alternate',
-                                loop: true,
-                                duration: 2000,
-                                easing: 'easeInOutSine',
-                                delay: anime.stagger(300) // Stagger the float too
-                             });
-                        }
-                    });
+                    if (getIsMobile()) {
+                        // Simple Mobile Entrance, No Floating Loop
+                        anime({
+                            targets: '.anime-cert',
+                            opacity: [0, 1],
+                            translateY: [20, 0],
+                            delay: anime.stagger(100),
+                            duration: 800,
+                            easing: 'easeOutQuad'
+                        });
+                    } else {
+                        // Desktop Entrance with Rotate & Elastic
+                        anime({
+                            targets: '.anime-cert',
+                            opacity: [0, 1],
+                            translateY: [50, 0],
+                            scale: [0.8, 1],
+                            rotate: {
+                                value: [-5, 0], // Slight rotation for effect
+                                duration: 1000
+                            },
+                            delay: anime.stagger(200),
+                            duration: 1200,
+                            easing: 'easeOutElastic(1, .8)',
+                            complete: function() {
+                                 // Continuous Floating Effect after entrance
+                                 anime({
+                                    targets: '.anime-cert img',
+                                    translateY: [-5, 5],
+                                    direction: 'alternate',
+                                    loop: true,
+                                    duration: 2000,
+                                    easing: 'easeInOutSine',
+                                    delay: anime.stagger(300) // Stagger the float too
+                                 });
+                            }
+                        });
+                    }
                     certsObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.2 });
+        }, { threshold: 0.01 });
 
         certsObserver.observe(certsContainer);
     }

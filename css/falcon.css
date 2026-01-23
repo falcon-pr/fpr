@@ -256,7 +256,9 @@ header {
 }
 
 header.scrolled {
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -274,7 +276,7 @@ header.scrolled {
 
 .logo-img {
     height: auto;
-    max-height: 65px;
+    max-height: 150px;
     max-width: 50vw; /* Prevent logo from crowding navigation on smaller screens */
     transition: var(--transition);
 }
@@ -509,6 +511,7 @@ header.scrolled {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 50px;
+    perspective: 1000px; /* Enable 3D space for children */
 }
 
 .service-card {
@@ -516,7 +519,7 @@ header.scrolled {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: var(--transition);
+    transition: var(--transition); /* Be careful this doesn't fight Anime.js */
     position: relative;
     z-index: 1;
     display: flex;
@@ -524,7 +527,8 @@ header.scrolled {
     min-height: 450px;
     /* Initial state for Stagger */
     opacity: 0;
-    transform: translateY(20px);
+    transform-style: preserve-3d; /* Preserve 3D for children if needed */
+    will-change: transform, opacity; /* Optimize for animation */
 }
 
 /* New Bg Structure for Zoom Effect */
@@ -557,12 +561,7 @@ header.scrolled {
 }
 
 .service-card:hover .service-card-bg::after {
-    opacity: 0.8; /* Darker on hover? Or just visible?
-       Original design: grayscale header -> full color bg.
-       Current plan: Bg Zoom. We want the image visible.
-       Let's keep it simple: Image is there. Overlay fades in/out.
-    */
-    opacity: 0; /* Let the image shine through on hover */
+    opacity: 0.7; /* Dark overlay to make white text pop against the image */
 }
 
 /* Wait, original design had image hidden initially?
@@ -1044,9 +1043,7 @@ footer {
 
 /* Floating Logo (Idea 4/Custom) */
 .logo-hero-flotante {
-    position: absolute; right: 5%; top: 20%; width: min(20vw, 150px); z-index: 2;
-    /* Handled by JS parallax now, but keep animation if JS fails?
-       No, JS will override. */
+    position: fixed; right: 5%; top: 20%; width: min(20vw, 150px); z-index: 900;
 }
 
 /* =========================================
@@ -1084,4 +1081,1860 @@ footer {
 .back-to-top:hover {
     background-color: var(--primary-black);
     transform: translateY(-5px);
+}
+
+/* Adjustments for Large Logo (Desktop) */
+@media (min-width: 992px) {
+    .header-container {
+        align-items: flex-end; /* Align menu to bottom of logo */
+    }
+
+    .hero, .service-hero, .hero-company {
+        padding-top: 260px; /* Increase padding to clear tall header */
+        min-height: 85vh; /* Ensure content fits with increased padding */
+        height: auto; /* Allow growth */
+        padding-bottom: 80px; /* Ensure bottom breathing room */
+    }
+}
+
+/* =========================================
+   13. FABRICATION PAGE STYLES (Migrated)
+   ========================================= */
+
+/* Hero Specifics */
+.fabrication-hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/fabrication-hero.jpg') no-repeat center center/cover;
+}
+
+.service-hero-content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.service-hero-text {
+    flex: 1;
+    text-align: left;
+}
+
+.service-hero-image {
+    flex: 0 0 350px;
+    max-width: 350px;
+}
+
+.hero-cert-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 4px solid var(--white);
+}
+
+/* Materials & Equipment */
+.materials-section {
+    background-color: var(--light-gray);
+    padding: 80px 0;
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.material-card {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: var(--transition);
+    position: relative;
+    border-top: 4px solid var(--primary-red);
+}
+
+.material-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.material-icon {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-red);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.material-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.material-content h3 {
+    margin-bottom: 15px;
+    color: var(--primary-black);
+}
+
+.equipment-section {
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('../images/fabrication-bg.jpg') center/cover;
+    padding: 80px 0;
+    color: var(--white);
+}
+
+.equipment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.equipment-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 8px;
+    padding: 30px;
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-red);
+}
+
+.equipment-card:hover {
+    background: rgba(189, 31, 40, 0.2);
+    transform: translateY(-5px);
+}
+
+.equipment-card h3 {
+    color: var(--white);
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.equipment-card h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-red);
+}
+
+/* Certified Fabrication Section */
+.certified-fabrication-section {
+    padding: 80px 0;
+    background: #f9f9f9;
+}
+
+.certified-fabrication-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.certified-fabrication-title {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #BD1F28;
+    font-weight: 800;
+}
+
+.certified-fabrication-intro {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.certs-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cert-wrapper {
+    flex: 0 0 250px;
+    text-align: center;
+    opacity: 0; /* Hidden initially for animation */
+}
+
+.cert-wrapper img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    border: 3px solid white;
+    transition: transform 0.3s ease;
+}
+
+.cert-wrapper:hover img {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+}
+
+.cert-caption {
+    margin-top: 10px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #BD1F28;
+}
+
+.certified-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.certified-service-item {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.certified-service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.certified-service-item h3 {
+    color: #BD1F28;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.certification-explanation {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.certification-explanation p {
+    margin-bottom: 20px;
+}
+
+.fabrication-services {
+    background: white;
+    padding: 40px;
+    border-radius: 8px;
+    margin-bottom: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.fabrication-services h3 {
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.stamp-details {
+    border-left: 4px solid #BD1F28;
+    padding-left: 20px;
+}
+
+.stamp-details h4 {
+    color: #BD1F28;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.stamp-details p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.stamp-applications h5 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.stamp-applications ul {
+    list-style: none;
+    padding: 0;
+}
+
+.stamp-applications ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 25px;
+}
+
+.stamp-applications ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #BD1F28;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.stamp-comparison {
+    margin-bottom: 50px;
+}
+
+.stamp-comparison h3 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.comparison-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-row:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.table-header {
+    background-color: #BD1F28 !important;
+    color: white;
+    font-weight: bold;
+}
+
+.table-cell {
+    display: table-cell;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.table-header .table-cell {
+    border-bottom: none;
+    font-weight: 700;
+}
+
+.stamp-cell {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.stamp-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: #BD1F28;
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.certification-cta {
+    background: #BD1F28;
+    color: white;
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.certification-cta h3 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.certification-cta p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stamp-cta-button {
+    display: inline-block;
+    background: white;
+    color: #BD1F28;
+    padding: 15px 35px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.stamp-cta-button:hover {
+    background: #f0f0f0;
+    transform: translateY(-3px);
+}
+
+/* Responsive adjustments for Fabrication */
+@media (max-width: 768px) {
+    .certified-fabrication-title {
+        font-size: 1.8rem;
+    }
+
+    .certified-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .table-cell {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .table-row {
+        display: block;
+        margin-bottom: 15px;
+        padding: 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .table-header {
+        display: none;
+    }
+
+    .table-cell:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        color: #BD1F28;
+    }
+
+    .stamp-cell {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .service-hero-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-hero-text {
+        text-align: center;
+    }
+
+    .service-hero-image {
+        flex: 0 0 auto;
+        max-width: 80%;
+        margin-top: 20px;
+    }
+}
+
+/* =========================================
+   Controlled Services Page Styles
+   ========================================= */
+.controlled-services-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/torque.png') no-repeat center center/cover;
+}
+
+.services-grid-enhanced {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card-enhanced {
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    border-top: 4px solid var(--primary-red);
+}
+
+.service-card-enhanced:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.service-icon-enhanced {
+    background: linear-gradient(135deg, var(--primary-red), #d12a34);
+    color: white;
+    font-size: 2.5rem;
+    padding: 30px;
+    text-align: center;
+}
+
+.service-content-enhanced {
+    padding: 30px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-content-enhanced h3 {
+    color: var(--primary-black);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.service-content-enhanced h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-red);
+}
+
+.service-content-enhanced p {
+    margin-bottom: 20px;
+    color: var(--dark-gray);
+    flex-grow: 1;
+}
+
+.service-features {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.service-features li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.service-features i {
+    color: var(--primary-red);
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.service-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.service-btn {
+    padding: 10px 20px;
+    background: var(--primary-red);
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.service-btn:hover {
+    background: var(--primary-black);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .service-card-enhanced {
+        flex-direction: column;
+    }
+
+    .service-icon-enhanced {
+        padding: 20px;
+    }
+
+    .service-content-enhanced {
+        padding: 20px;
+    }
+
+    .service-buttons {
+        flex-direction: column;
+    }
+}
+
+/* =========================================
+   Our Company Page Styles
+   ========================================= */
+.hero-company {
+    position: relative;
+    height: 60vh;
+    min-height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+}
+
+.about-company {
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.about-company-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-company-text {
+    margin-bottom: 50px;
+}
+
+.about-company-text h2 {
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+.about-company-text p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.about-company-text strong {
+    color: var(--primary-black);
+    font-weight: 700;
+}
+
+.commitment-section {
+    background-color: var(--light-gray);
+    padding: 60px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.commitment-section h2 {
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 992px) {
+    /* Note: .hero-company h1 is also targeted by global hero styles, but we keep this for specificity if needed, though check for conflicts */
+    .hero-company h1 {
+        font-size: 2.5rem;
+    }
+
+    .commitment-section {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-company {
+        height: auto;
+        padding: 120px 0 80px;
+    }
+
+    .hero-company h1 {
+        font-size: 2rem;
+    }
+
+    .commitment-section {
+        padding: 30px 20px;
+    }
+}
+
+/* Learn More Section Styles (from Our Company) */
+.learn-more {
+    position: relative;
+}
+
+.learn-more-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.learn-more-text p {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    color: var(--dark-gray);
+}
+
+.learn-more .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.learn-more .service-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 25px;
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+}
+
+.learn-more .service-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.learn-more .service-header {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.learn-more .service-icon {
+    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-red);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.learn-more .service-content {
+    flex: 1;
+}
+
+.learn-more .service-content h3 {
+    color: var(--primary-black);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.learn-more .service-content p {
+    color: var(--dark-gray);
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.learn-more .service-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--primary-red);
+    border: 2px solid var(--primary-red);
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.learn-more .service-btn:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(189, 31, 40, 0.3);
+}
+
+.learn-more .service-btn i {
+    font-size: 0.8rem;
+}
+
+.execution-highlight {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 5px solid var(--primary-red);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.execution-highlight h3 {
+    color: var(--primary-red);
+    margin-bottom: 15px;
+}
+
+.execution-highlight p {
+    margin-bottom: 0;
+}
+
+.cta-options {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 100px;
+}
+
+.cta-options h3 {
+    color: var(--primary-black);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn-outline-red {
+    background-color: transparent;
+    color: var(--primary-red);
+    border: 2px solid var(--primary-red);
+}
+
+.btn-outline-red:hover {
+    background-color: var(--primary-red);
+    color: var(--white);
+}
+
+.cta-buttons .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 20px;
+    text-align: left;
+}
+
+@media (max-width: 992px) {
+    .learn-more-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .cta-options {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .learn-more .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .learn-more .service-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .learn-more .service-icon {
+        align-self: center;
+    }
+
+    .cta-buttons .btn {
+        font-size: 0.9rem;
+        padding: 12px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .learn-more .service-item {
+        padding: 20px;
+    }
+
+    .execution-highlight {
+        padding: 20px;
+    }
+
+    .cta-options {
+        padding: 20px;
+    }
+}
+
+/* =========================================
+   Mechanical Services Page Styles
+   ========================================= */
+.mechanical-hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../images/final_mechanical.jpg') no-repeat center center/cover;
+}
+
+/* =========================================
+   Specialty Welding Page Styles
+   ========================================= */
+.welding-hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/welding_hero.jpg') no-repeat center center/cover;
+}
+
+/* Tower Welding Section Styles */
+.tower-welding-section {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, #f9f9f9, #fff);
+}
+
+.tower-welding-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.tower-welding-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #BD1F28;
+    font-weight: 800;
+}
+
+.tower-welding-subtitle {
+    font-size: 1.4rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.tower-welding-intro {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.tower-welding-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.tower-welding-capabilities h3,
+.tower-welding-features h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #BD1F28;
+}
+
+.tower-capabilities-list,
+.tower-features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.tower-capabilities-list li,
+.tower-features-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 30px;
+}
+
+.tower-capabilities-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #BD1F28;
+    font-weight: bold;
+}
+
+.tower-features-list li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #BD1F28;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+
+.tower-specific-services {
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #BD1F28;
+}
+
+.tower-specific-services h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.tower-services-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.tower-service-item {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.tower-service-item h4 {
+    color: #BD1F28;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.tower-service-item ul {
+    list-style: none;
+    padding: 0;
+}
+
+.tower-service-item ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+    position: relative;
+    padding-left: 20px;
+}
+
+.tower-service-item ul li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #BD1F28;
+}
+
+@media (max-width: 992px) {
+    .tower-welding-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tower-welding-title {
+        font-size: 2rem;
+    }
+
+    .tower-welding-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .tower-services-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FPR Welding Section Styles */
+.fpr-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.fpr-welding-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('../images/welding_specialty_new.jpg') no-repeat center center/cover;
+    height: 100vh;
+    min-height: 650px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.fpr-welding-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.fpr-welding-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.fpr-welding-subtitle {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.fpr-welding-subtitle span {
+    font-weight: 700;
+    color: #d9230f;
+}
+
+.fpr-welding-divider {
+    width: 150px;
+    height: 3px;
+    background: #d9230f;
+    margin: 2rem auto;
+}
+
+.fpr-welding-description {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.fpr-welding-cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.fpr-welding-cta-primary {
+    background: #d9230f;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.fpr-welding-cta-primary:hover {
+    background: #b51c0c;
+    transform: translateY(-3px);
+}
+
+.fpr-welding-cta-secondary {
+    background: transparent;
+    color: white;
+    padding: 15px 35px;
+    border: 2px solid white;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fpr-welding-cta-secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.fpr-welding-phone-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M20 15.5c-1.2 0-2.5-.2-3.6-.6h-.3c-.3 0-.5.1-.7.3l-2.2 2.2c-2.8-1.5-5.2-3.8-6.6-6.6l2.2-2.2c.4-.4.6-1 .3-1.5-.4-1.1-.6-2.4-.6-3.6 0-.5-.5-1-1-1H4c-.5 0-1 .5-1 1 0 9.4 7.6 17 17 17 .5 0 1-.5 1-1v-3.5c0-.5-.5-1-1-1z"/></svg>') no-repeat center center;
+}
+
+.fpr-welding-capabilities {
+    padding: 80px 0;
+    background: #f8f8f8;
+}
+
+.fpr-section-heading {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.fpr-section-heading span {
+    color: #d9230f;
+}
+
+.fpr-welding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.fpr-welding-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 30px;
+}
+
+.fpr-welding-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.fpr-welding-icon-box {
+    width: 60px;
+    height: 60px;
+    background: #d9230f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.fpr-welding-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.fpr-icon-certified {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2L4 5v6.1c0 1.4.6 2.8 1.7 3.9 3.6 3.6 9.1 3.6 12.7 0 1.1-1.1 1.7-2.5 1.7-3.9V5l-8-3zm-1.1 15.5l-3.5-3.5 1.4-1.4 2.1 2.1 4.6-4.6 1.4 1.4-6 6z"/></svg>');
+}
+
+.fpr-icon-alloy {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M18 12c0-4.5-1.9-8.6-5-11.5-.3-.3-.8-.3-1.1 0-3.1 2.9-5 7-5 11.5s1.9 8.6 5 11.5c.3.3.8.3 1.1 0 3.1-2.9 5-7 5-11.5zM12 16c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4z"/></svg>');
+}
+
+.fpr-icon-emergency {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 2L4 5v6.1c0 1.4.6 2.8 1.7 3.9 3.6 3.6 9.1 3.6 12.7 0 1.1-1.1 1.7-2.5 1.7-3.9V5l-8-3zm0 12c-.6 0-1-.4-1-1s.4-1 1-1 1 .4 1 1-.4 1-1 1zm1-4h-2V6h2v4z"/></svg>');
+}
+
+.fpr-welding-card-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.fpr-welding-card-text {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.fpr-welding-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fpr-welding-features li {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.fpr-welding-features li:last-child {
+    border-bottom: none;
+}
+
+.fpr-welding-advantages {
+    padding: 80px 0;
+    background: #222;
+    color: white;
+}
+
+.fpr-welding-advantage-content {
+    max-width: 800px;
+    margin: 0 auto 50px;
+}
+
+.fpr-advantage-list {
+    display: grid;
+    gap: 30px;
+}
+
+.fpr-advantage-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.fpr-advantage-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.1);
+    line-height: 1;
+}
+
+.fpr-advantage-text h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.fpr-advantage-text p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.fpr-welding-safety {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.fpr-safety-card {
+    background: #333;
+    padding: 30px;
+    border-left: 4px solid #d9230f;
+}
+
+.fpr-safety-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.fpr-safety-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fpr-safety-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    color: #ddd;
+}
+
+.fpr-safety-list li:last-child {
+    border-bottom: none;
+}
+
+.fpr-welding-emergency {
+    background: #d9230f;
+    color: white;
+    padding: 30px 0;
+}
+
+.fpr-emergency-content {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.fpr-emergency-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.fpr-emergency-button {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    background: #222;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 4px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.fpr-emergency-button:hover {
+    background: #000;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .fpr-welding-hero {
+        min-height: 500px;
+        height: auto;
+        padding: 100px 0;
+    }
+
+    .fpr-welding-title {
+        font-size: 2.5rem;
+    }
+
+    .fpr-welding-subtitle {
+        font-size: 1.4rem;
+    }
+
+    .fpr-section-heading {
+        font-size: 2rem;
+    }
+
+    .fpr-welding-cta-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fpr-welding-cta-primary,
+    .fpr-welding-cta-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .fpr-welding-title {
+        font-size: 2rem;
+    }
+
+    .fpr-welding-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .fpr-welding-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* FPR Expert Welding Section */
+.fpr-expert-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.fpr-expert-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-black);
+    margin-bottom: 20px;
+    position: relative;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.fpr-expert-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-red);
+    margin: 15px auto 0;
+}
+
+.fpr-expert-subtitle {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 50px;
+    color: var(--dark-gray);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.fpr-expert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.fpr-expert-text {
+    text-align: left;
+}
+
+.fpr-expert-intro {
+    font-weight: 700;
+    color: var(--primary-black);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.fpr-expert-desc {
+    color: var(--dark-gray);
+    line-height: 1.6;
+}
+
+.fpr-expert-image-wrapper img {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 100%;
+    display: block; /* Removes bottom space */
+}
+
+@media (max-width: 992px) {
+    .fpr-expert-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+/* =========================================
+   Torque & Bolt Tensioning Page Styles
+   ========================================= */
+.torque-hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1597852074816-d933c7d2b988?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+}
+
+.bolt-tensioning-hero-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+}
+
+/* Service Detail Section */
+.service-detail {
+    position: relative;
+    padding: 100px 0;
+    background-color: var(--white);
+}
+
+.service-detail-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+.service-detail-text {
+    flex: 1;
+}
+
+.service-detail-image {
+    flex: 1;
+    position: relative;
+}
+
+.service-detail-image img {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: auto;
+}
+
+.equipment-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.equipment-item {
+    background-color: var(--light-gray);
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-red);
+    transition: var(--transition);
+}
+
+.equipment-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-item h4 {
+    color: var(--primary-red);
+    margin-bottom: 10px;
+}
+
+.feature-list {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.feature-icon {
+    color: var(--primary-red);
+    font-size: 1.5rem;
+    margin-right: 15px;
+    min-width: 25px;
+}
+
+.feature-text h4 {
+    margin-bottom: 5px;
+}
+
+/* Service CTA Section */
+.service-cta {
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 80px 0;
+    text-align: center;
+}
+
+/* Why Choose Section */
+.why-choose {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.benefit-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-item h4 {
+    color: var(--primary-red);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.benefit-item h4 i {
+    margin-right: 10px;
+}
+
+/* Materials Section */
+.materials-section {
+    padding: 80px 0;
+    background-color: var(--light-gray);
+}
+
+.materials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.material-card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.material-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.material-icon {
+    font-size: 3rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+}
+
+.material-content h3 {
+    color: var(--primary-black);
+    margin-bottom: 15px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .service-detail-content,
+    .contact-container {
+        flex-direction: column;
+    }
+
+    .service-detail-image {
+        order: -1;
+    }
+}
+
+/* =========================================
+   Safety Page Styles
+   ========================================= */
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    perspective: 1000px; /* Enable 3D space */
+}
+
+.safety-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    border-top: 5px solid var(--primary-red);
+    padding: 30px;
+
+    /* Animation Initial State handled by JS, but if fallback needed: */
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+}
+
+.safety-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.safety-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.safety-icon {
+    font-size: 3rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    text-align: center;
+    display: block;
+}
+
+.safety-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-black);
+}
+
+.safety-card p {
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.safety-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.safety-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+}
+
+.safety-list li:before {
+    content: "\f00c"; /* FontAwesome check */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--primary-red);
+    font-size: 0.9rem;
+}
+
+/* Adjust grid for mobile */
+@media (max-width: 768px) {
+    .safety-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .safety-card {
+        min-height: auto;
+    }
+}
+
+/* =========================================
+   Quality Page Styles
+   ========================================= */
+.quality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+    perspective: 1000px;
+}
+
+.quality-card {
+    background-color: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    border-top: 5px solid var(--primary-red);
+    padding: 30px;
+
+    /* Animation Initial State */
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+}
+
+.quality-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.quality-card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.quality-icon {
+    font-size: 3rem;
+    color: var(--primary-red);
+    margin-bottom: 20px;
+    text-align: center;
+    display: block;
+}
+
+.quality-card h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--primary-black);
+}
+
+.quality-card p {
+    color: var(--dark-gray);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.quality-list {
+    list-style: none;
+    margin-top: 15px;
+}
+
+.quality-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+}
+
+.quality-list li:before {
+    content: "\f00c"; /* FontAwesome check */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: var(--primary-red);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .quality-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quality-card {
+        min-height: auto;
+    }
 }
