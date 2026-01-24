@@ -266,7 +266,7 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 5px 0;
 }
 
 .logo {
@@ -276,7 +276,7 @@ header.scrolled {
 
 .logo-img {
     height: auto;
-    max-height: 120px;
+    max-height: 90px;
     max-width: 50vw; /* Prevent logo from crowding navigation on smaller screens */
     transition: var(--transition);
 }
@@ -294,7 +294,7 @@ header.scrolled {
 
 .nav-menu li a {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: var(--primary-black);
     position: relative;
     padding: 5px 0;
@@ -1098,7 +1098,7 @@ footer {
     }
 
     .hero, .service-hero, .hero-company {
-        padding-top: 210px; /* Increase padding to clear tall header */
+        padding-top: 170px; /* Increase padding to clear tall header */
         min-height: 85vh; /* Ensure content fits with increased padding */
         height: auto; /* Allow growth */
         padding-bottom: 80px; /* Ensure bottom breathing room */
