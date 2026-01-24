@@ -266,7 +266,7 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .logo {
@@ -276,7 +276,7 @@ header.scrolled {
 
 .logo-img {
     height: auto;
-    max-height: 150px;
+    max-height: 120px;
     max-width: 50vw; /* Prevent logo from crowding navigation on smaller screens */
     transition: var(--transition);
 }
@@ -289,11 +289,12 @@ header.scrolled {
 
 .nav-menu li {
     position: relative;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .nav-menu li a {
     font-weight: 600;
+    font-size: 1.25rem;
     color: var(--primary-black);
     position: relative;
     padding: 5px 0;
@@ -676,7 +677,7 @@ header.scrolled {
 
 /* Stats */
 .stats {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1544&q=80') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/ultimate_mechanical.jpg') no-repeat center center/cover;
     padding: 80px 0;
     color: var(--white);
     text-align: center;
@@ -881,6 +882,11 @@ footer {
     }
 }
 
+/* Floating Logo (Idea 4/Custom) */
+.logo-hero-flotante {
+    position: fixed; right: 5%; top: 20%; width: min(35vw, 280px); z-index: 900;
+}
+
 /* =========================================
    11. RESPONSIVE
    ========================================= */
@@ -1027,7 +1033,13 @@ footer {
 
     .service-card { min-height: auto; }
     .stat-item { padding: 20px; }
-    .logo-hero-flotante { display: none; }
+    /* .logo-hero-flotante { display: none; } Removed to show on mobile */
+    .logo-hero-flotante {
+        display: block;
+        width: 100px;
+        right: 10px;
+        top: 15%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1041,10 +1053,6 @@ footer {
     }
 }
 
-/* Floating Logo (Idea 4/Custom) */
-.logo-hero-flotante {
-    position: fixed; right: 5%; top: 20%; width: min(20vw, 150px); z-index: 900;
-}
 
 /* =========================================
    12. BACK TO TOP BUTTON (Idea 8)
@@ -1090,7 +1098,7 @@ footer {
     }
 
     .hero, .service-hero, .hero-company {
-        padding-top: 260px; /* Increase padding to clear tall header */
+        padding-top: 210px; /* Increase padding to clear tall header */
         min-height: 85vh; /* Ensure content fits with increased padding */
         height: auto; /* Allow growth */
         padding-bottom: 80px; /* Ensure bottom breathing room */

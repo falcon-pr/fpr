@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Floating Falcon Animation
     const falcon = document.querySelector('.logo-hero-flotante');
-    if (falcon && !getIsMobile()) {
+    if (falcon) {
         // Idle Animation (Bounce)
         const bounceAnim = anime({
             targets: falcon,
