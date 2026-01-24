@@ -923,6 +923,25 @@ footer {
 
     .section { padding: 40px 0; }
 
+    /* Center section titles on mobile */
+    .section-title {
+        left: 0;
+        transform: none !important;
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    .about-text h3,
+    .contact-info h3,
+    .careers-card h3,
+    .service-content h3,
+    .commitment-section h2,
+    .execution-highlight h3,
+    .cta-options h3 {
+        text-align: center;
+    }
+
     .mobile-menu-btn {
         display: block;
         width: 44px;
