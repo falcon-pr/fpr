@@ -639,4 +639,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
         certsObserver.observe(certsContainer);
     }
+
+    // 15. FABRICATION HERO CERTIFICATE CYCLE
+    const heroCertImg = document.querySelector('.hero-cert-img');
+    if (heroCertImg) {
+        const certs = [
+            '../images/cert_asme.jpg',
+            '../images/cert_s_stamp.jpg',
+            '../images/cert_nb.jpg'
+        ];
+        let currentCertIndex = 0;
+
+        setInterval(() => {
+            currentCertIndex = (currentCertIndex + 1) % certs.length;
+
+            // Fade Out
+            anime({
+                targets: heroCertImg,
+                opacity: 0,
+                duration: 500,
+                easing: 'easeInOutQuad',
+                complete: () => {
+                    heroCertImg.src = certs[currentCertIndex];
+                    // Fade In
+                    anime({
+                        targets: heroCertImg,
+                        opacity: 1,
+                        duration: 500,
+                        easing: 'easeInOutQuad'
+                    });
+                }
+            });
+        }, 4000); // Change every 4 seconds
+    }
 });
