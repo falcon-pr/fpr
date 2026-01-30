@@ -296,8 +296,9 @@ header.scrolled {
     height: auto;
     max-height: 90px;
     max-width: 50vw; /* Prevent logo from crowding navigation on smaller screens */
-    object-fit: contain;
     transition: var(--transition);
+    object-fit: contain;
+    filter: drop-shadow(0 0 2px #ffffff);
 }
 
 /* Logo text styles removed as we now use a full image logo */
@@ -907,6 +908,10 @@ footer {
     position: fixed; right: 5%; top: 20%; width: min(35vw, 280px); z-index: 900;
 }
 
+.logo-hero-flotante img {
+    filter: drop-shadow(0 0 2px #ffffff);
+}
+
 /* =========================================
    11. RESPONSIVE
    ========================================= */
@@ -1174,7 +1179,6 @@ footer {
     flex: 0 1 500px;
     max-width: 500px;
     width: 100%;
-    min-width: 0;
 }
 
 .hero-cert-img {
@@ -1207,8 +1211,6 @@ footer {
     width: auto !important;
     max-width: 100%;
     flex: 0 0 auto;
-    display: block;
-    aspect-ratio: auto;
     object-fit: contain;
     transition: transform 0.3s ease, filter 0.3s ease;
     filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3)); /* Subtle glow */
@@ -1371,8 +1373,6 @@ footer {
 
 .cert-wrapper {
     flex: 0 0 250px;
-    width: 250px;
-    max-width: 100%;
     text-align: center;
     opacity: 0; /* Hidden initially for animation */
 }
@@ -1381,9 +1381,6 @@ footer {
     width: 100%;
     max-width: 250px;
     height: auto;
-    display: block;
-    margin: 0 auto;
-    object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     border: 3px solid white;
