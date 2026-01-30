@@ -294,8 +294,8 @@ header.scrolled {
 }
 
 .logo-img {
-    height: auto;
     width: auto; /* Strict aspect ratio */
+    height: auto;
     max-height: 90px;
     max-width: 50vw; /* Prevent logo from crowding navigation on smaller screens */
     object-fit: contain; /* Block distortion */
@@ -906,7 +906,7 @@ footer {
 
 /* Floating Logo (Idea 4/Custom) */
 .logo-hero-flotante {
-    position: fixed; right: 5%; top: 20%; width: min(35vw, 280px); z-index: 900;
+    position: fixed; right: 5%; top: 20%; width: 280px; max-width: 35vw; z-index: 900;
 }
 
 .logo-hero-flotante img {
