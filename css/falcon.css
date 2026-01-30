@@ -297,8 +297,6 @@ header.scrolled {
     max-height: 90px;
     max-width: 50vw; /* Prevent logo from crowding navigation on smaller screens */
     transition: var(--transition);
-    object-fit: contain;
-    filter: drop-shadow(0 0 2px #ffffff);
 }
 
 /* Logo text styles removed as we now use a full image logo */
@@ -906,10 +904,6 @@ footer {
 /* Floating Logo (Idea 4/Custom) */
 .logo-hero-flotante {
     position: fixed; right: 5%; top: 20%; width: min(35vw, 280px); z-index: 900;
-}
-
-.logo-hero-flotante img {
-    filter: drop-shadow(0 0 2px #ffffff);
 }
 
 /* =========================================
