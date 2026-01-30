@@ -1214,6 +1214,7 @@ footer {
 .hero-stamp-img {
     height: 80px !important;
     width: auto !important;
+    min-width: auto; /* Prevent flex collapse */
     aspect-ratio: auto; /* Strict aspect ratio */
     max-width: 100%;
     flex: 0 0 auto;
