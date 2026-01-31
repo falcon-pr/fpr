@@ -284,7 +284,8 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 0;
+    padding: 5px 40px;
+    max-width: 100%;
 }
 
 .logo {
