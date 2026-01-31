@@ -364,6 +364,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // 9. STATS COUNTERS (Idea 16 & Idea 10 - Center Trigger)
     const statsSection = document.querySelector('.stats');
     if (statsSection) {
+        // Initial state to prevent FOUC
+        document.querySelectorAll('.stat-item').forEach(el => el.style.opacity = '0');
+
         // Idea 10: Center Trigger for Mobile
         const isMobileStats = getIsMobile();
         const statsRootMargin = isMobileStats ? '-40% 0px -40% 0px' : '0px';
@@ -371,6 +374,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    // Animate Stat Items Entrance
+                    anime({
+                        targets: '.stat-item',
+                        opacity: [0, 1],
+                        translateY: [20, 0],
+                        delay: anime.stagger(150),
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+
                     const counters = document.querySelectorAll('.stat-number');
                     counters.forEach(counter => {
                         const originalText = counter.innerText;
@@ -671,5 +684,52 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         }, 4000); // Change every 4 seconds
+    }
+
+    // 16. MECHANICAL PAGE: EQUIPMENT LIST STAGGER
+    const equipmentList = document.querySelector('.equipment-list');
+    if (equipmentList) {
+        // Initial state to prevent FOUC
+        document.querySelectorAll('.equipment-item').forEach(el => el.style.opacity = '0');
+
+        const equipmentObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: '.equipment-item',
+                        opacity: [0, 1],
+                        translateY: [30, 0],
+                        delay: anime.stagger(150),
+                        duration: 800,
+                        easing: 'easeOutQuad'
+                    });
+                    equipmentObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        equipmentObserver.observe(equipmentList);
+    }
+
+    // 17. MECHANICAL PAGE: DETAIL IMAGE
+    const mechDetailImg = document.querySelector('.service-detail-image');
+    if (mechDetailImg) {
+        // Set initial state
+        mechDetailImg.style.opacity = '0';
+        
+        const imgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: mechDetailImg,
+                        opacity: [0, 1],
+                        translateX: [50, 0], // Slide from right
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    });
+                    imgObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        imgObserver.observe(mechDetailImg);
     }
 });
