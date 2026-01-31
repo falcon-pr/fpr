@@ -106,10 +106,8 @@ ul {
     position: relative;
     margin-bottom: 50px;
     text-align: center;
-    display: inline-block; /* Crucial for width calculation */
-    /* Center in container */
-    left: 50%;
-    transform: translateX(-50%);
+    display: block; /* Changed from inline-block to fix Desktop centering */
+    width: 100%;
 }
 
 /* Replace ::after with real element .title-line */
@@ -284,8 +282,7 @@ header.scrolled {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 40px;
-    max-width: 100%;
+    padding: 5px 0;
 }
 
 .logo {
@@ -393,6 +390,7 @@ header.scrolled {
     background-color: #333;
     display: flex;
     align-items: center;
+    justify-content: center; /* Ensure horizontal centering */
     color: var(--white);
     text-align: center;
     padding-top: 80px;
@@ -468,6 +466,7 @@ header.scrolled {
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
+    justify-content: center; /* Ensure horizontal centering */
     color: var(--white);
     text-align: center;
     padding-top: 80px;
@@ -1814,6 +1813,7 @@ footer {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1513828583688-c52646db42da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
     display: flex;
     align-items: center;
+    justify-content: center; /* Ensure horizontal centering */
     color: var(--white);
     text-align: center;
 }
