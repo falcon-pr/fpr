@@ -240,14 +240,6 @@
     </div>
 </section>
 
-    <!-- CTA Section -->
-    <section class="service-cta">
-        <div class="container">
-            <h2>Need Certified Fabrication Services?</h2>
-            <p class="text-white" style="max-width: 700px; margin: 0 auto 30px;">Our ASME U Stamp and NBIC R Stamp certified team is ready to handle your most critical fabrication and repair projects with precision and compliance.</p>
-            <a href="../index.html#contacto-formulario" class="btn btn-outline-white">Contact Our Fabrication Team</a>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -343,30 +335,6 @@
             });
         });
         
-        // Animation on Scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.material-card, .equipment-card, .stat-item');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-        
-        // Set initial state for animated elements
-        document.querySelectorAll('.material-card, .equipment-card, .stat-item').forEach(element => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(20px)';
-            element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-        
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
