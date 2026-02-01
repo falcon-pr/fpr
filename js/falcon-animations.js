@@ -192,20 +192,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // 6. SERVICE CARDS STAGGER - Top Tier Animation
-    const servicesGrid = document.querySelector('.services-grid, .safety-grid, .quality-grid');
-    if (servicesGrid) {
+    // Expanded selectors for all service pages
+    const gridSelectors = '.services-grid, .safety-grid, .quality-grid, .equipment-list, .stats-grid, .fpr-welding-grid, .materials-grid, .certified-services-grid, .services-grid-enhanced, .benefits-grid';
+    const cardSelectors = '.service-card, .safety-card, .quality-card, .equipment-item, .stat-item, .fpr-welding-card, .material-card, .certified-service-item, .service-card-enhanced, .benefit-item';
+
+    const servicesGrids = document.querySelectorAll(gridSelectors);
+
+    if (servicesGrids.length > 0) {
         const gridObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    // Find cards specifically within this grid to avoid animating all grids at once
+                    const targetCards = entry.target.querySelectorAll(cardSelectors);
+
                     if (getIsMobile()) {
                         // Simplified Mobile Animation
-                        anime.set('.service-card, .safety-card, .quality-card', {
+                        anime.set(targetCards, {
                             opacity: 0,
                             translateY: 20
                         });
 
                         anime({
-                            targets: '.service-card, .safety-card, .quality-card',
+                            targets: targetCards,
                             opacity: [0, 1],
                             translateY: [20, 0],
                             delay: anime.stagger(100),
@@ -214,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
                     } else {
                         // Desktop - Full 3D Elastic Effect
-                        anime.set('.service-card, .safety-card, .quality-card', {
+                        anime.set(targetCards, {
                             opacity: 0,
                             translateY: 50,
                             scale: 0.8,
@@ -222,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         });
 
                         anime({
-                            targets: '.service-card, .safety-card, .quality-card',
+                            targets: targetCards,
                             opacity: [0, 1],
                             translateY: [50, 0],
                             scale: [0.8, 1],
@@ -237,11 +245,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { threshold: 0.1 });
 
-        gridObserver.observe(servicesGrid);
+        servicesGrids.forEach(grid => gridObserver.observe(grid));
     }
 
     // 7. SERVICE CARD HOVER - 3D TILT & LEVITATION (Top of the Top)
-    document.querySelectorAll('.service-card, .safety-card, .quality-card').forEach(card => {
+    const allCardsSelector = '.service-card, .safety-card, .quality-card, .equipment-item, .stat-item, .fpr-welding-card, .material-card, .certified-service-item, .service-card-enhanced, .benefit-item';
+    document.querySelectorAll(allCardsSelector).forEach(card => {
         const bg = card.querySelector('.service-card-bg');
 
         // Disable native transition for smoother anime.js control during interaction
@@ -374,15 +383,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Animate Stat Items Entrance
-                    anime({
-                        targets: '.stat-item',
-                        opacity: [0, 1],
-                        translateY: [20, 0],
-                        delay: anime.stagger(150),
-                        duration: 800,
-                        easing: 'easeOutQuad'
-                    });
+                    // Stat Items Entrance handled by main grid observer (Step 6)
 
                     const counters = document.querySelectorAll('.stat-number');
                     counters.forEach(counter => {
@@ -587,7 +588,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Let's filter by width to be precise to the request.
 
     if (getIsMobile()) {
-        const serviceCards = document.querySelectorAll('.service-card, .safety-card, .quality-card');
+        const mobileCardSelector = '.service-card, .safety-card, .quality-card, .equipment-item, .stat-item, .fpr-welding-card, .material-card, .certified-service-item, .service-card-enhanced, .benefit-item';
+        const serviceCards = document.querySelectorAll(mobileCardSelector);
         serviceCards.forEach(card => {
             card.addEventListener('click', () => {
                 // Quick scale pulse
@@ -686,29 +688,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000); // Change every 4 seconds
     }
 
-    // 16. MECHANICAL PAGE: EQUIPMENT LIST STAGGER
-    const equipmentList = document.querySelector('.equipment-list');
-    if (equipmentList) {
-        // Initial state to prevent FOUC
-        document.querySelectorAll('.equipment-item').forEach(el => el.style.opacity = '0');
-
-        const equipmentObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    anime({
-                        targets: '.equipment-item',
-                        opacity: [0, 1],
-                        translateY: [30, 0],
-                        delay: anime.stagger(150),
-                        duration: 800,
-                        easing: 'easeOutQuad'
-                    });
-                    equipmentObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-        equipmentObserver.observe(equipmentList);
-    }
+    // 16. MECHANICAL PAGE: EQUIPMENT LIST STAGGER - Handled by Main Grid Observer (Step 6)
 
     // 17. MECHANICAL PAGE: DETAIL IMAGE
     const mechDetailImg = document.querySelector('.service-detail-image:not(#fab-detail-image)');

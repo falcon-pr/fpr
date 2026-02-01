@@ -677,6 +677,7 @@ header.scrolled {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin: 40px 0;
+    perspective: 1000px; /* Enable 3D space */
 }
 
 .equipment-item {
@@ -685,10 +686,13 @@ header.scrolled {
     border-radius: 8px;
     border-left: 4px solid var(--primary-red);
     transition: var(--transition);
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .equipment-item:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); - Handled by Anime.js */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -709,9 +713,15 @@ header.scrolled {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
+    perspective: 1000px;
 }
 
-.stat-item { padding: 30px; }
+.stat-item {
+    padding: 30px;
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
+}
 
 .stat-number {
     font-size: 3rem;
@@ -1264,6 +1274,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    perspective: 1000px;
 }
 
 .material-card {
@@ -1274,10 +1285,13 @@ footer {
     transition: var(--transition);
     position: relative;
     border-top: 4px solid var(--primary-red);
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .material-card:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
@@ -1417,6 +1431,7 @@ footer {
     gap: 30px;
     margin-bottom: 50px;
     justify-content: center;
+    perspective: 1000px;
 }
 
 .certified-service-item {
@@ -1426,10 +1441,13 @@ footer {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .certified-service-item:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
 }
 
 .service-icon {
@@ -1684,6 +1702,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    perspective: 1000px;
 }
 
 .service-card-enhanced {
@@ -1695,10 +1714,13 @@ footer {
     display: flex;
     flex-direction: column;
     border-top: 4px solid var(--primary-red);
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .service-card-enhanced:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
@@ -2387,6 +2409,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
+    perspective: 1000px;
 }
 
 .fpr-welding-card {
@@ -2396,10 +2419,13 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     padding: 30px;
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .fpr-welding-card:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
@@ -2795,6 +2821,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    perspective: 1000px;
 }
 
 .benefit-item {
@@ -2803,10 +2830,13 @@ footer {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .benefit-item:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -2832,6 +2862,7 @@ footer {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
     margin-top: 40px;
+    perspective: 1000px;
 }
 
 .material-card {
@@ -2841,10 +2872,13 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: var(--transition);
+    opacity: 0;
+    transform-style: preserve-3d;
+    will-change: transform, opacity;
 }
 
 .material-card:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
