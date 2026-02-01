@@ -711,11 +711,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 17. MECHANICAL PAGE: DETAIL IMAGE
-    const mechDetailImg = document.querySelector('.service-detail-image');
+    const mechDetailImg = document.querySelector('.service-detail-image:not(#fab-detail-image)');
     if (mechDetailImg) {
         // Set initial state
         mechDetailImg.style.opacity = '0';
-        
+
         const imgObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -731,5 +731,28 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { threshold: 0.2 });
         imgObserver.observe(mechDetailImg);
+    }
+
+    // 18. FABRICATION PAGE: DETAIL IMAGE
+    const fabDetailImg = document.getElementById('fab-detail-image');
+    if (fabDetailImg) {
+        fabDetailImg.style.opacity = '0'; // Initial state
+
+        const fabImgObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    anime({
+                        targets: fabDetailImg,
+                        opacity: [0, 1],
+                        translateY: [30, 0], // Slide up
+                        scale: [0.95, 1], // Slight zoom
+                        duration: 1000,
+                        easing: 'easeOutCubic'
+                    });
+                    fabImgObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        fabImgObserver.observe(fabDetailImg);
     }
 });
