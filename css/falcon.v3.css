@@ -3144,22 +3144,3 @@ footer {
 #fab-service-card .service-card-bg {
     filter: none;
 }
-
-/* Quality & Safety Full Screen Heros */
-.hero-full-screen {
-    height: 100vh;
-    min-height: 100vh;
-}
-
-.quality-hero-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/quality_hero.jpg') no-repeat center center/cover;
-}
-
-.safety-hero-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/safety_hero_new.jpg') no-repeat center center/cover;
-}
-
-/* Fabrication Detail Image: Black and White Filter */
-#fab-detail-image img {
-    filter: grayscale(100%);
-}
