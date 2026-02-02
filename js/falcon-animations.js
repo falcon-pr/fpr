@@ -282,12 +282,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // BG Parallax Effect
             if (bg) {
-                const moveX = ((x - centerX) / centerX) * -10;
-                const moveY = ((y - centerY) / centerY) * -10;
+                const moveX = ((x - centerX) / centerX) * -5;
+                const moveY = ((y - centerY) / centerY) * -5;
 
                 anime({
                     targets: bg,
-                    scale: 1.15, // Zoom in
+                    scale: 1.02, // Zoom in
                     translateX: moveX,
                     translateY: moveY,
                     duration: 100,

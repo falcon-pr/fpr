@@ -1694,7 +1694,39 @@ footer {
    Controlled Services Page Styles
    ========================================= */
 .controlled-services-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/torque.png') no-repeat center center/cover;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: transparent; /* Override default .hero color */
+}
+
+/* Layer 1: Blurred Background (Deepest) */
+.controlled-services-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: url('../images/torque.png') center/cover no-repeat;
+    filter: blur(20px);
+    transform: scale(1.1); /* Prevent blur edges */
+}
+
+/* Layer 2: Sharp Main Image + Gradient Overlay (Middle) */
+.controlled-services-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/torque.png');
+    background-size: cover, contain;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
 }
 
 .services-grid-enhanced {
@@ -2119,7 +2151,7 @@ footer {
    Mechanical Services Page Styles
    ========================================= */
 .mechanical-hero-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('../images/final_mechanical.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)), url('../images/final_mechanical.jpg') no-repeat center center/cover;
 }
 
 /* =========================================
@@ -3094,4 +3126,21 @@ footer {
     .quality-card {
         min-height: auto;
     }
+}
+
+/* =========================================
+   Custom Overrides
+   ========================================= */
+/* Fabrication Card Specifics: Grayscale Default, Color on Hover */
+#fab-service-card .service-image img {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease;
+}
+
+#fab-service-card:hover .service-image img {
+    filter: grayscale(0%);
+}
+
+#fab-service-card .service-card-bg {
+    filter: none;
 }
