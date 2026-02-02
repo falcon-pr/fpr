@@ -16,7 +16,7 @@ jobs:
 
       # 2. Subir los archivos con la acción SCP
       - name: SCP Deploy (appleboy)
-        uses: appleboy/scp-action@v0.1.4
+        uses: appleboy/scp-action@v0.1.7
         with:
           # --- Mis datos de login (Secrets) ---
           host: ${{ secrets.FTP_SERVER }}
