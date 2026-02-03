@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Zero-out Hero Image initially to prevent FOUC/Glitch before animation
     const heroImgInitial = document.querySelector('.service-hero-image');
     if (heroImgInitial) {
-        heroImgInitial.style.opacity = '0';
+        // heroImgInitial.style.opacity = '0';
     }
 
     // 1. PRELOADER (Idea 9)
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const statsSection = document.querySelector('.stats');
     if (statsSection) {
         // Initial state to prevent FOUC
-        document.querySelectorAll('.stat-item').forEach(el => el.style.opacity = '0');
+        // document.querySelectorAll('.stat-item').forEach(el => el.style.opacity = '0');
 
         // Idea 10: Center Trigger for Mobile
         const isMobileStats = getIsMobile();
@@ -694,7 +694,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const mechDetailImg = document.querySelector('.service-detail-image:not(#fab-detail-image)');
     if (mechDetailImg) {
         // Set initial state
-        mechDetailImg.style.opacity = '0';
+        // mechDetailImg.style.opacity = '0';
 
         const imgObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 18. FABRICATION PAGE: DETAIL IMAGE
     const fabDetailImg = document.getElementById('fab-detail-image');
     if (fabDetailImg) {
-        fabDetailImg.style.opacity = '0'; // Initial state
+        // fabDetailImg.style.opacity = '0'; // Initial state
 
         const fabImgObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
