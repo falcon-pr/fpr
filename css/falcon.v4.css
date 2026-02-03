@@ -549,7 +549,7 @@ header.scrolled {
     flex-direction: column;
     min-height: 450px;
     /* Initial state for Stagger */
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d; /* Preserve 3D for children if needed */
     will-change: transform, opacity; /* Optimize for animation */
 }
@@ -581,11 +581,6 @@ header.scrolled {
     background: rgba(0,0,0,0.6); /* Default dark overlay for readability */
     opacity: 0;
     transition: opacity 0.4s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-card:hover .service-card-bg::after {
@@ -691,13 +686,13 @@ header.scrolled {
     border-radius: 8px;
     border-left: 4px solid var(--primary-red);
     transition: var(--transition);
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
 .equipment-item:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); - Handled by Anime.js */
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -723,7 +718,7 @@ header.scrolled {
 
 .stat-item {
     padding: 30px;
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
@@ -1141,7 +1136,7 @@ footer {
     align-items: center;
     font-size: 1.2rem;
     transition: var(--transition);
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
 }
@@ -1290,13 +1285,13 @@ footer {
     transition: var(--transition);
     position: relative;
     border-top: 4px solid var(--primary-red);
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
 .material-card:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
@@ -1404,7 +1399,7 @@ footer {
     flex: 0 0 250px;
     max-width: 100%; /* Safety for small screens */
     text-align: center;
-    /* opacity: 0; Hidden initially for animation - Removed */
+    opacity: 0; /* Hidden initially for animation */
 }
 
 .cert-wrapper img {
@@ -1446,13 +1441,13 @@ footer {
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
 .certified-service-item:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
 }
 
 .service-icon {
@@ -1751,13 +1746,13 @@ footer {
     display: flex;
     flex-direction: column;
     border-top: 4px solid var(--primary-red);
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
 .service-card-enhanced:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 40px rgba(0,0,0,0.15);
 }
 
@@ -2456,13 +2451,13 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     padding: 30px;
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
 .fpr-welding-card:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
@@ -2867,13 +2862,13 @@ footer {
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
 .benefit-item:hover {
-    transform: translateY(-5px);
+    /* transform: translateY(-5px); */
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
@@ -2909,13 +2904,13 @@ footer {
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     text-align: center;
     transition: var(--transition);
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
 
 .material-card:hover {
-    transform: translateY(-10px);
+    /* transform: translateY(-10px); */
     box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
@@ -2968,7 +2963,7 @@ footer {
     padding: 30px;
 
     /* Animation Initial State handled by JS, but if fallback needed: */
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
@@ -3064,7 +3059,7 @@ footer {
     padding: 30px;
 
     /* Animation Initial State */
-    /* opacity: 0; Removed to prevent invisible content if JS fails */
+    opacity: 0;
     transform-style: preserve-3d;
     will-change: transform, opacity;
 }
