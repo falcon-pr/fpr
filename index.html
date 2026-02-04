@@ -100,7 +100,7 @@
         </div>
 
         <div class="logo-hero-flotante">
-            <img src="./images/falcon_floating_red_new.png" alt="Falcon Volando">
+            <img src="./images/falcon_floating_red_v2.png" alt="Falcon Volando">
         </div>
 
         <!-- Scroll Indicator (Idea 5) -->
@@ -367,6 +367,16 @@
             navMenu.classList.toggle('active');
             mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close menu when clicking internal links
+        document.querySelectorAll('#navMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
         });
         
         // Header Scroll Effect
